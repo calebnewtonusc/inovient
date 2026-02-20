@@ -50,7 +50,7 @@ export const pricingTiers: PricingTier[] = [
       churnRate: "<8% annual",
     },
     recommended: false,
-    color: "#a78bfa",
+    color: "#6EE7CB",
     gradient: "from-violet-400 to-purple-500",
   },
   {

@@ -26,15 +26,14 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
             {/* Brand mark */}
-            <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
+            <Link href="/" className="flex items-center flex-shrink-0">
               <Image
                 src="/inovient-logo.png"
                 alt="Inovient"
-                width={28}
-                height={28}
-                className="rounded object-contain"
+                width={44}
+                height={44}
+                className="object-contain invert"
               />
-              <span className="text-[#EBEBF5] text-sm font-bold tracking-[0.08em]">INOVIENT</span>
             </Link>
 
             {/* Desktop nav: text only, no icons */}
@@ -60,7 +59,7 @@ export function Navigation() {
                 href="https://www.inovient.io/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] font-mono text-[#38385A] hover:text-[#7C5CF6] transition-colors uppercase tracking-[0.2em]"
+                className="text-[10px] font-mono text-[#38385A] hover:text-[#22D3A4] transition-colors uppercase tracking-[0.2em]"
               >
                 inovient.io ↗
               </a>
@@ -103,7 +102,7 @@ export function Navigation() {
                 href="https://www.inovient.io/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-3 py-2.5 text-sm text-[#38385A] hover:text-[#7C5CF6] transition-colors"
+                className="block px-3 py-2.5 text-sm text-[#38385A] hover:text-[#22D3A4] transition-colors"
               >
                 inovient.io ↗
               </a>

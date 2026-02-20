@@ -55,7 +55,7 @@ export default function PricingStrategyPage() {
                 key={tier.id}
                 className={`flex flex-col rounded-md border p-6 ${
                   tier.recommended
-                    ? "border-[#7C5CF6]/50 bg-[#7C5CF6]/5"
+                    ? "border-[#22D3A4]/50 bg-[#22D3A4]/5"
                     : "border-[#26263A] bg-[#13131C]"
                 }`}
               >
@@ -69,7 +69,7 @@ export default function PricingStrategyPage() {
                       {tier.name}
                     </span>
                     {tier.recommended && (
-                      <span className="text-[9px] font-mono text-[#7C5CF6] uppercase tracking-wider">
+                      <span className="text-[9px] font-mono text-[#22D3A4] uppercase tracking-wider">
                         recommended
                       </span>
                     )}
@@ -88,7 +88,7 @@ export default function PricingStrategyPage() {
                   <p className="text-xs text-[#38385A] mt-1.5">{tier.targetSegment}</p>
                 </div>
 
-                {/* Features — top 5 only */}
+                {/* Features, top 5 only */}
                 <div className="flex-1 space-y-2.5 mb-5">
                   {tier.features.slice(0, 5).map((feature) => (
                     <div key={feature} className="flex items-start gap-2">
@@ -226,14 +226,14 @@ export default function PricingStrategyPage() {
                   />
                   <Tooltip contentStyle={ttStyle} />
                   <Bar dataKey="industry" name="Industry Avg" fill="#26263A" radius={[2, 2, 0, 0]} />
-                  <Bar dataKey="inovient" name="Inovient" fill="#7C5CF6" radius={[2, 2, 0, 0]} />
+                  <Bar dataKey="inovient" name="Inovient" fill="#22D3A4" radius={[2, 2, 0, 0]} />
                   <Bar dataKey="best" name="Best-in-Class" fill="#22D3A4" radius={[2, 2, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
               <div className="flex items-center gap-5 mt-4">
                 {[
                   { label: "Industry Avg", color: "#26263A" },
-                  { label: "Inovient", color: "#7C5CF6" },
+                  { label: "Inovient", color: "#22D3A4" },
                   { label: "Best-in-Class", color: "#22D3A4" },
                 ].map(({ label, color }) => (
                   <div key={label} className="flex items-center gap-1.5">
@@ -262,8 +262,8 @@ export default function PricingStrategyPage() {
                       <stop offset="95%" stopColor="#38BDF8" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="gg2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#7C5CF6" stopOpacity={0.14} />
-                      <stop offset="95%" stopColor="#7C5CF6" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#22D3A4" stopOpacity={0.14} />
+                      <stop offset="95%" stopColor="#22D3A4" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#22D3A4" stopOpacity={0.1} />
@@ -299,7 +299,7 @@ export default function PricingStrategyPage() {
                     type="monotone"
                     dataKey="growth"
                     stackId="1"
-                    stroke="#7C5CF6"
+                    stroke="#22D3A4"
                     fill="url(#gg2)"
                     strokeWidth={1.5}
                     name="Growth"
@@ -341,7 +341,7 @@ export default function PricingStrategyPage() {
               {
                 n: "03",
                 title: "Land and Expand",
-                desc: "Start SMBs at Starter, target upgrade to Growth at 3 months. Enterprise pilots via Growth before full deployment. NRR target: 115%+ — top-quartile SaaS per OpenView Partners benchmarks.",
+                desc: "Start SMBs at Starter, target upgrade to Growth at 3 months. Enterprise pilots via Growth before full deployment. NRR target: 115%+, top-quartile SaaS per OpenView Partners benchmarks.",
               },
               {
                 n: "04",
@@ -380,10 +380,10 @@ export default function PricingStrategyPage() {
           <div className="card p-8">
             <div className="max-w-3xl space-y-5">
               <p className="text-sm text-[#EBEBF5] leading-relaxed">
-                <span className="font-semibold">Launch with Growth ($899/mo) as the primary motion.</span> Starter ($299/mo) should operate as a trial-to-convert vehicle, not a revenue center. Enterprise pricing should be custom from day one — a published enterprise rate signals commoditization at the top end and caps negotiating room.
+                <span className="font-semibold">Launch with Growth ($899/mo) as the primary motion.</span> Starter ($299/mo) should operate as a trial-to-convert vehicle, not a revenue center. Enterprise pricing should be custom from day one, a published enterprise rate signals commoditization at the top end and caps negotiating room.
               </p>
               <p className="text-sm text-[#6A6A90] leading-relaxed">
-                The $299 Starter price is justified by ~$1,400/mo in demonstrable value (25% reduction in analyst labor at a $50K average salary). Growth at $899 delivers ~$4,200/mo at the same inputs — a 4.7x value multiple. This sits squarely within the 3–5x sweet spot for mid-market B2B SaaS where buyers approve without extended procurement cycles.
+                The $299 Starter price is justified by ~$1,400/mo in demonstrable value (25% reduction in analyst labor at a $50K average salary). Growth at $899 delivers ~$4,200/mo at the same inputs, a 4.7x value multiple. This sits squarely within the 3–5x sweet spot for mid-market B2B SaaS where buyers approve without extended procurement cycles.
               </p>
               <p className="text-sm text-[#6A6A90] leading-relaxed">
                 The 20% annual discount (equivalent to $239/mo or $719/mo billed annually) is the right lever for conversion velocity. At Seed stage, 12-month cash predictability outweighs the 20% revenue trade-off, which is recovered in approximately 5 months of improved retention.

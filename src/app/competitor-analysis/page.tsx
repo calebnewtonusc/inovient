@@ -31,18 +31,18 @@ const ttStyle = {
 
 const swotData = {
   strengths: [
-    "The only platform combining competitor review sentiment benchmarking (G2, Trustpilot, app stores), media mix modeling, and strategy AI in one workflow — enterprise capability that Sprinklr charges $150K+/yr for, at mid-market pricing.",
+    "The only platform combining competitor review sentiment benchmarking (G2, Trustpilot, app stores), media mix modeling, and strategy AI in one workflow, enterprise capability that Sprinklr charges $150K+/yr for, at mid-market pricing.",
     "Accessible MMM: the market has Google Meridian (free but requires a data science team) or Analytic Partners ($150K+/yr). Morpheus is the only managed MMM for teams spending $500K–$5M/year on media.",
-    "40+ years of practitioner domain expertise embedded in AI recommendations. Not a generic LLM wrapper — opinionated, marketing-native intelligence calibrated for real campaign decisions.",
+    "40+ years of practitioner domain expertise embedded in AI recommendations. Not a generic LLM wrapper, opinionated, marketing-native intelligence calibrated for real campaign decisions.",
   ],
   weaknesses: [
-    "Brand recognition is near-zero against Sprinklr, HubSpot, and Klue — each with entrenched sales teams and multi-year customer relationships.",
+    "Brand recognition is near-zero against Sprinklr, HubSpot, and Klue, each with entrenched sales teams and multi-year customer relationships.",
     "Enterprise integrations are limited at launch. Salesforce, SAP, and Adobe Experience Cloud connectors are roadmap items, not shipped product.",
     "Small team means customer success and implementation support doesn't scale like incumbents. Critical to solve before moving upmarket.",
   ],
   opportunities: [
     "Mid-market is a $6.6B gap. Market Logic requires $150K+ contracts. Sprinklr minimum ACV is $150K. Klue (competitive intel only) starts at $20K/yr. No integrated solution exists below $20K/year.",
-    "Agency white-label at 50% margin creates distribution without headcount. Agencies pay $450/mo and bill $4K–$10K/mo to clients — a natural land-and-expand motion.",
+    "Agency white-label at 50% margin creates distribution without headcount. Agencies pay $450/mo and bill $4K–$10K/mo to clients, a natural land-and-expand motion.",
     "AI marketing spend is accelerating at 36.6% CAGR (GVR). 65% of enterprises now deploy gen AI in marketing and sales (McKinsey 2024). We are entering at the inflection point.",
   ],
   threats: [
@@ -116,7 +116,7 @@ export default function CompetitorAnalysisPage() {
                 <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: comp.color }} />
                 {comp.name.split(" ")[0]}
                 {comp.id === "inovient" && (
-                  <span className="text-[9px] text-[#7C5CF6]">★</span>
+                  <span className="text-[9px] text-[#22D3A4]">★</span>
                 )}
               </button>
             ))}
@@ -288,7 +288,7 @@ export default function CompetitorAnalysisPage() {
                           <span
                             className={`text-sm font-medium ${
                               comp.id === "inovient"
-                                ? "text-[#7C5CF6]"
+                                ? "text-[#22D3A4]"
                                 : "text-[#EBEBF5]"
                             }`}
                           >
@@ -391,9 +391,9 @@ export default function CompetitorAnalysisPage() {
                 key: "O",
                 title: "Opportunities",
                 items: swotData.opportunities,
-                accentColor: "#7C5CF6",
-                bgClass: "bg-[#7C5CF6]/4",
-                borderColor: "#7C5CF6",
+                accentColor: "#22D3A4",
+                bgClass: "bg-[#22D3A4]/4",
+                borderColor: "#22D3A4",
               },
               {
                 key: "T",

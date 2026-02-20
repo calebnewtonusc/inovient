@@ -6,7 +6,7 @@ export const marketSizeData = {
   tam: {
     label: "Total Addressable Market",
     abbr: "TAM",
-    value: 491_000_000_000, // $491B — Global Marketing Technology, 2025E (GVR 2024, 19.4% CAGR from $344.8B 2023 base)
+    value: 491_000_000_000, // $491B, Global Marketing Technology, 2025E (GVR 2024, 19.4% CAGR from $344.8B 2023 base)
     description: "Global marketing technology market including all digital marketing tools and platforms",
     cagr: 19.4,
     year2030: 1_190_000_000_000, // $1.19T
@@ -14,7 +14,7 @@ export const marketSizeData = {
   sam: {
     label: "Serviceable Addressable Market",
     abbr: "SAM",
-    value: 64_600_000_000, // $64.6B — AI-Powered Marketing Platforms, 2025E (GVR 2024, 36.6% CAGR from $47.3B 2024 base)
+    value: 64_600_000_000, // $64.6B, AI-Powered Marketing Platforms, 2025E (GVR 2024, 36.6% CAGR from $47.3B 2024 base)
     description: "AI-powered marketing software and analytics platforms",
     cagr: 36.6,
     year2030: 307_000_000_000, // $307B
@@ -22,7 +22,7 @@ export const marketSizeData = {
   som: {
     label: "Serviceable Obtainable Market",
     abbr: "SOM",
-    value: 6_600_000_000, // $6.6B — AI marketing analytics, competitive intelligence & MMM for mid-market, 2025E
+    value: 6_600_000_000, // $6.6B, AI marketing analytics, competitive intelligence & MMM for mid-market, 2025E
     description: "AI-driven competitive intelligence, marketing analytics, and media mix modeling tools accessible to mid-market",
     cagr: 38.0,
     year2030: 33_000_000_000, // $33B
@@ -42,9 +42,9 @@ export const marketGrowthData = [
 
 export const segmentData = [
   { name: "Enterprise (1000+ employees)", value: 42, color: "#6366f1" },
-  { name: "Mid-Market (100–999)", value: 33, color: "#8b5cf6" },
-  { name: "SMB (10–99)", value: 18, color: "#a78bfa" },
-  { name: "Startup (<10)", value: 7, color: "#c4b5fd" },
+  { name: "Mid-Market (100–999)", value: 33, color: "#22D3A4" },
+  { name: "SMB (10–99)", value: 18, color: "#6EE7CB" },
+  { name: "Startup (<10)", value: 7, color: "#99EDD8" },
 ];
 
 // Adoption curve calibrated to: Salesforce SOM 2024 (75% using/experimenting with AI tools);

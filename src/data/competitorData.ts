@@ -42,7 +42,7 @@ export const competitors: Competitor[] = [
     funding: "Seed",
     strengths: [
       "Only platform combining competitor sentiment benchmarking, media mix modeling, and strategy AI",
-      "Competitor review intelligence from G2, Trustpilot, and app stores — enterprise capability at mid-market pricing",
+      "Competitor review intelligence from G2, Trustpilot, and app stores, enterprise capability at mid-market pricing",
       "40+ years practitioner domain expertise embedded in AI recommendations",
       "Accessible pricing where alternatives cost $20K–$500K+/year",
     ],
@@ -81,7 +81,7 @@ export const competitors: Competitor[] = [
       "Aggregates external research feeds (news, industry reports, trends)",
     ],
     weaknesses: [
-      "Knowledge management tool, not a strategy generator — requires rich internal research to be useful",
+      "Knowledge management tool, not a strategy generator, requires rich internal research to be useful",
       "No media mix modeling, budget allocation, or competitor sentiment tracking",
       "Enterprise-only ($150K+ contracts), completely inaccessible to mid-market",
       "Requires dedicated insights team to populate and maintain",
@@ -112,13 +112,13 @@ export const competitors: Competitor[] = [
     strengths: [
       "Best-in-class social listening and earned media monitoring across 30+ channels",
       "Competitor review sentiment aggregation (G2, Trustpilot, app stores, social)",
-      "Unified data platform — marketing, service, and care in one system",
+      "Unified data platform, marketing, service, and care in one system",
       "Strong enterprise security, compliance, and SLAs",
     ],
     weaknesses: [
       "No media mix modeling or budget allocation AI",
       "No marketing strategy playbooks or AI recommendations",
-      "Minimum $150K+ ACV — effectively closed to mid-market and SMB",
+      "Minimum $150K+ ACV, effectively closed to mid-market and SMB",
       "Designed for large enterprise CX teams, not lean marketing organizations",
     ],
     radarScores: {
@@ -146,12 +146,12 @@ export const competitors: Competitor[] = [
     funding: "$62M Series B",
     strengths: [
       "Purpose-built competitive intelligence with automated competitor monitoring",
-      "Battlecard generation for sales teams — strongest use case",
+      "Battlecard generation for sales teams, strongest use case",
       "Tracks competitor pricing changes, product launches, job postings, and press",
       "Strong G2 presence in the competitive intelligence category",
     ],
     weaknesses: [
-      "Sales enablement focus — not built for marketing strategy or budget decisions",
+      "Sales enablement focus, not built for marketing strategy or budget decisions",
       "No media mix modeling, NPS tracking, or marketing-specific AI",
       "Annual contracts $20K–$80K/yr still price out smaller mid-market teams",
       "Competitive monitoring breadth doesn't extend to review sentiment depth",
@@ -189,7 +189,7 @@ export const competitors: Competitor[] = [
       "No competitor sentiment benchmarking or external brand intelligence",
       "No media mix modeling or cross-channel budget optimization",
       "Very high TCO with complex licensing and mandatory consulting engagements",
-      "Locked to Salesforce ecosystem — limited value without CRM investment",
+      "Locked to Salesforce ecosystem, limited value without CRM investment",
     ],
     radarScores: {
       aiCapability: 80,
@@ -224,7 +224,7 @@ export const competitors: Competitor[] = [
       "Generic AI assistant with no marketing-domain specialization",
       "No competitor intelligence, NPS proxies, media mix, or attribution",
       "Quality inconsistent on complex analytical and strategic tasks",
-      "Horizontal tool — not designed for marketing decision workflows",
+      "Horizontal tool, not designed for marketing decision workflows",
     ],
     radarScores: {
       aiCapability: 72,
@@ -256,7 +256,7 @@ export const competitors: Competitor[] = [
       "Largest SMB/mid-market marketing software ecosystem",
     ],
     weaknesses: [
-      "Breeze AI is content and workflow automation — no competitive intelligence or NPS",
+      "Breeze AI is content and workflow automation, no competitive intelligence or NPS",
       "No media mix modeling or cross-channel budget optimization",
       "AI strategy depth is shallow vs. purpose-built platforms",
       "Expensive at scale: contact-based pricing spikes as database grows",

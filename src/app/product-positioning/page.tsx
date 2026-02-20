@@ -7,10 +7,10 @@ const positioningStatement = {
   for: "Marketing teams and agencies at mid-market companies (100–1,000 employees)",
   who: "need enterprise-grade competitive intelligence and media analytics but can't justify $150K+/year contracts",
   is: "the only integrated AI marketing intelligence platform",
-  that: "combines competitor review sentiment benchmarking, managed media mix modeling, and AI strategy recommendations in one workflow — capabilities that previously required three separate enterprise contracts",
+  that: "combines competitor review sentiment benchmarking, managed media mix modeling, and AI strategy recommendations in one workflow, capabilities that previously required three separate enterprise contracts",
   unlike:
     "enterprise-only tools like Market Logic ($150K+ contracts), social listening platforms like Sprinklr ($150K+ ACV), or competitive intelligence point solutions like Klue ($20K–$80K/yr) that don't cover media mix or strategy",
-  our: "Morpheus was built by marketing practitioners with 40+ years of domain expertise — not a generic AI layer. Every recommendation reflects how real marketing decisions actually get made.",
+  our: "Morpheus was built by marketing practitioners with 40+ years of domain expertise, not a generic AI layer. Every recommendation reflects how real marketing decisions actually get made.",
 };
 
 const personas = [
@@ -20,7 +20,7 @@ const personas = [
     description:
       "Spends 4+ hours per week manually pulling competitor intel and briefing agencies. Morpheus delivers competitor review sentiment, media mix recommendations, and board-ready briefs in minutes.",
     icon: Target,
-    accentColor: "#7C5CF6",
+    accentColor: "#22D3A4",
     budget: "$900–$2,500/mo",
     tier: "Growth → Enterprise",
   },
@@ -61,12 +61,12 @@ const messagingPillars = [
     pillar: "Built by Marketers",
     headline: "AI that speaks marketing fluently",
     body: "40+ years of domain expertise is embedded in every recommendation. Not generic AI: opinionated, marketing-native intelligence.",
-    color: "#7C5CF6",
+    color: "#22D3A4",
   },
   {
     pillar: "Competitor Intelligence",
     headline: "Know what your competitors' customers actually think",
-    body: "Competitor review sentiment aggregated from G2, Trustpilot, and app stores — updated continuously. The brand health intelligence that enterprise teams pay Brandwatch $40K+/year for, at mid-market pricing.",
+    body: "Competitor review sentiment aggregated from G2, Trustpilot, and app stores, updated continuously. The brand health intelligence that enterprise teams pay Brandwatch $40K+/year for, at mid-market pricing.",
     color: "#38BDF8",
   },
   {
@@ -137,7 +137,7 @@ export default function ProductPositioningPage() {
                 { label: "Our product", text: positioningStatement.our },
               ].map(({ label, text }) => (
                 <div key={label} className="flex gap-5 py-4 border-b border-[#1E1E2E] last:border-0">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.12em] text-[#7C5CF6] w-20 flex-shrink-0 pt-0.5">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.12em] text-[#22D3A4] w-20 flex-shrink-0 pt-0.5">
                     {label}
                   </span>
                   <p className="text-[#EBEBF5] leading-relaxed">{text}</p>
@@ -210,7 +210,7 @@ export default function ProductPositioningPage() {
                       Capability
                     </th>
                     {[
-                      { name: "Morpheus", color: "#7C5CF6", isUs: true },
+                      { name: "Morpheus", color: "#22D3A4", isUs: true },
                       { name: "Market Logic", color: "#38BDF8", isUs: false },
                       { name: "Sprinklr", color: "#F87171", isUs: false },
                       { name: "Klue", color: "#FBBF24", isUs: false },
@@ -219,10 +219,10 @@ export default function ProductPositioningPage() {
                       <th key={name} className="text-center px-4 py-3.5">
                         <div className="flex flex-col items-center gap-1">
                           <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }} />
-                          <span className={`text-[10px] font-mono ${isUs ? "text-[#7C5CF6] font-bold" : "text-[#38385A]"}`}>
+                          <span className={`text-[10px] font-mono ${isUs ? "text-[#22D3A4] font-bold" : "text-[#38385A]"}`}>
                             {name}
                           </span>
-                          {isUs && <span className="text-[8px] font-mono text-[#7C5CF6] uppercase tracking-wider">us</span>}
+                          {isUs && <span className="text-[8px] font-mono text-[#22D3A4] uppercase tracking-wider">us</span>}
                         </div>
                       </th>
                     ))}

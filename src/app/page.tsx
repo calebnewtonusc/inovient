@@ -115,7 +115,7 @@ export default function DashboardPage() {
                 <Link
                   key={href}
                   href={href}
-                  className="text-xs font-mono text-[#38385A] hover:text-[#7C5CF6] transition-colors"
+                  className="text-xs font-mono text-[#38385A] hover:text-[#22D3A4] transition-colors"
                 >
                   {label} →
                 </Link>
@@ -145,8 +145,8 @@ export default function DashboardPage() {
                       <stop offset="95%" stopColor="#38BDF8" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="growGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#7C5CF6" stopOpacity={0.18} />
-                      <stop offset="95%" stopColor="#7C5CF6" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#22D3A4" stopOpacity={0.18} />
+                      <stop offset="95%" stopColor="#22D3A4" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="startGrad" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#22D3A4" stopOpacity={0.14} />
@@ -182,7 +182,7 @@ export default function DashboardPage() {
                     type="monotone"
                     dataKey="growth"
                     stackId="1"
-                    stroke="#7C5CF6"
+                    stroke="#22D3A4"
                     fill="url(#growGrad)"
                     strokeWidth={1.5}
                     name="Growth"
@@ -201,7 +201,7 @@ export default function DashboardPage() {
               <div className="flex items-center gap-5 mt-4">
                 {[
                   { label: "Enterprise", color: "#38BDF8" },
-                  { label: "Growth", color: "#7C5CF6" },
+                  { label: "Growth", color: "#22D3A4" },
                   { label: "Starter", color: "#22D3A4" },
                 ].map(({ label, color }) => (
                   <div key={label} className="flex items-center gap-1.5">
@@ -234,13 +234,13 @@ export default function DashboardPage() {
                     tickLine={false}
                   />
                   <Tooltip contentStyle={ttStyle} />
-                  <Bar dataKey="SAM" fill="#7C5CF6" radius={[3, 3, 0, 0]} name="SAM ($B)" />
+                  <Bar dataKey="SAM" fill="#22D3A4" radius={[3, 3, 0, 0]} name="SAM ($B)" />
                   <Bar dataKey="SOM" fill="#22D3A4" radius={[3, 3, 0, 0]} name="SOM ($100M)" />
                 </BarChart>
               </ResponsiveContainer>
               <div className="flex items-center gap-5 mt-4">
                 {[
-                  { label: "SAM ($B)", color: "#7C5CF6" },
+                  { label: "SAM ($B)", color: "#22D3A4" },
                   { label: "SOM ($100M)", color: "#22D3A4" },
                 ].map(({ label, color }) => (
                   <div key={label} className="flex items-center gap-1.5">
@@ -261,7 +261,7 @@ export default function DashboardPage() {
               {
                 num: "A",
                 title: "Market Opportunity",
-                body: "$64.6B AI marketing SAM at 36.6% CAGR (GVR 2024). We target a $6.6B serviceable segment — competitive intelligence, MMM, and marketing analytics tools accessible to mid-market — growing to $33B by 2030.",
+                body: "$64.6B AI marketing SAM at 36.6% CAGR (GVR 2024). We target a $6.6B serviceable segment, competitive intelligence, MMM, and marketing analytics tools accessible to mid-market, growing to $33B by 2030.",
               },
               {
                 num: "B",
@@ -271,7 +271,7 @@ export default function DashboardPage() {
               {
                 num: "C",
                 title: "Pricing Architecture",
-                body: "$299–$2,499/mo anchored to 4–12x ROI multiples. 78% gross margins, 9:1 blended LTV:CAC, payback under 9 months — top-quartile SaaS benchmarks per OpenView Partners.",
+                body: "$299–$2,499/mo anchored to 4–12x ROI multiples. 78% gross margins, 9:1 blended LTV:CAC, payback under 9 months, top-quartile SaaS benchmarks per OpenView Partners.",
               },
               {
                 num: "D",
@@ -352,7 +352,7 @@ export default function DashboardPage() {
                           <span
                             className={`font-medium ${
                               comp.id === "inovient"
-                                ? "text-[#7C5CF6]"
+                                ? "text-[#22D3A4]"
                                 : "text-[#EBEBF5]"
                             }`}
                           >
@@ -402,7 +402,7 @@ export default function DashboardPage() {
               </p>
               <Link
                 href="/competitor-analysis"
-                className="text-xs font-mono text-[#38385A] hover:text-[#7C5CF6] transition-colors"
+                className="text-xs font-mono text-[#38385A] hover:text-[#22D3A4] transition-colors"
               >
                 Full analysis →
               </Link>
@@ -438,7 +438,7 @@ export default function DashboardPage() {
                 <div className="flex items-start gap-3 flex-1">
                   <div
                     className={`w-px self-stretch mt-1.5 flex-shrink-0 ${
-                      active ? "bg-[#7C5CF6]" : "bg-[#26263A]"
+                      active ? "bg-[#22D3A4]" : "bg-[#26263A]"
                     }`}
                     style={{ minHeight: "1rem" }}
                   />

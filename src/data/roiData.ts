@@ -40,7 +40,7 @@ export function calculateROI(inputs: ROIInputs): ROIOutputs {
   const price = tierPrices[inputs.tier];
 
   // Labor savings: Morpheus reduces research, briefing prep, and reporting by ~25%.
-  // Conservative estimate vs. platform claims — time saved on competitive intel,
+  // Conservative estimate vs. platform claims, time saved on competitive intel,
   // media mix analysis, and strategy documentation (per McKinsey productivity benchmarks).
   const hourlyRate = inputs.avgSalary / 2080;
   const monthlyHours = inputs.teamSize * 160;

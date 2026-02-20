@@ -69,7 +69,7 @@ function Slider({
         aria-label={label}
         aria-valuetext={format(value)}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-0.5 bg-[#26263A] rounded-full appearance-none cursor-pointer accent-[#7C5CF6]"
+        className="w-full h-0.5 bg-[#26263A] rounded-full appearance-none cursor-pointer accent-[#22D3A4]"
       />
       <div className="flex justify-between text-[10px] font-mono text-[#38385A]">
         <span>{format(min)}</span>
@@ -84,7 +84,7 @@ export default function ROIModelingPage() {
   const results = calculateROI(inputs);
 
   const breakdownData = [
-    { name: "Labor Savings", value: results.laborSavings, color: "#7C5CF6" },
+    { name: "Labor Savings", value: results.laborSavings, color: "#22D3A4" },
     { name: "Revenue Uplift", value: results.revenueUplift, color: "#22D3A4" },
     { name: "Tool Savings", value: results.toolConsolidationSavings, color: "#38BDF8" },
   ];
@@ -126,7 +126,7 @@ export default function ROIModelingPage() {
                       onClick={() => update("tier")(tier)}
                       className={`py-2 px-2 rounded text-xs font-mono transition-all capitalize border ${
                         inputs.tier === tier
-                          ? "border-[#7C5CF6] bg-[#7C5CF6]/15 text-[#EBEBF5]"
+                          ? "border-[#22D3A4] bg-[#22D3A4]/15 text-[#EBEBF5]"
                           : "border-[#26263A] text-[#38385A] hover:border-[#38385A] hover:text-[#6A6A90]"
                       }`}
                     >
@@ -238,13 +238,13 @@ export default function ROIModelingPage() {
                     key={label}
                     className={`rounded-md border p-5 text-center ${
                       accent
-                        ? "border-[#7C5CF6]/40 bg-[#7C5CF6]/8"
+                        ? "border-[#22D3A4]/40 bg-[#22D3A4]/8"
                         : "border-[#26263A] bg-[#13131C]"
                     }`}
                   >
                     <p
                       className={`text-2xl sm:text-3xl font-black font-mono tracking-tight leading-none ${
-                        accent ? "text-[#7C5CF6]" : "text-[#EBEBF5]"
+                        accent ? "text-[#22D3A4]" : "text-[#EBEBF5]"
                       }`}
                     >
                       {value}
@@ -310,7 +310,7 @@ export default function ROIModelingPage() {
                 </p>
                 <div className="space-y-0">
                   {[
-                    { label: "Labor Savings", value: formatCurrency(results.laborSavings), color: "#7C5CF6" },
+                    { label: "Labor Savings", value: formatCurrency(results.laborSavings), color: "#22D3A4" },
                     { label: "Revenue Uplift", value: formatCurrency(results.revenueUplift), color: "#22D3A4" },
                     { label: "Tool Consolidation", value: formatCurrency(results.toolConsolidationSavings), color: "#38BDF8" },
                   ].map(({ label, value, color }) => (
@@ -358,7 +358,7 @@ export default function ROIModelingPage() {
                     {study.industry} · {study.tier} · payback in {study.results.paybackDays} days
                   </p>
                 </div>
-                <blockquote className="flex-1 border-l border-[#7C5CF6]/30 pl-4">
+                <blockquote className="flex-1 border-l border-[#22D3A4]/30 pl-4">
                   <p className="text-sm text-[#6A6A90] leading-relaxed italic mb-3">
                     &ldquo;{study.quote}&rdquo;
                   </p>

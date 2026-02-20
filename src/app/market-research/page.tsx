@@ -71,7 +71,7 @@ export default function MarketResearchPage() {
                 <p className="text-xs text-[#6A6A90] mb-6">{market.label}</p>
                 <div className="pt-4 border-t border-[#26263A]">
                   <p className="text-[10px] font-mono text-[#38385A] mb-1">2030</p>
-                  <p className="text-xl font-black font-mono text-[#7C5CF6]">
+                  <p className="text-xl font-black font-mono text-[#22D3A4]">
                     {formatCurrency(market.year2030, true)}
                   </p>
                 </div>
@@ -123,7 +123,7 @@ export default function MarketResearchPage() {
                   <span className="text-sm text-[#EBEBF5]">{label}</span>
                   <span
                     className={`text-sm font-bold font-mono flex-shrink-0 ml-4 ${
-                      active ? "text-[#7C5CF6]" : "text-[#6A6A90]"
+                      active ? "text-[#22D3A4]" : "text-[#6A6A90]"
                     }`}
                   >
                     {value}
@@ -146,8 +146,8 @@ export default function MarketResearchPage() {
                 >
                   <defs>
                     <linearGradient id="samG" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#7C5CF6" stopOpacity={0.15} />
-                      <stop offset="95%" stopColor="#7C5CF6" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#22D3A4" stopOpacity={0.15} />
+                      <stop offset="95%" stopColor="#22D3A4" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="somG" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#22D3A4" stopOpacity={0.15} />
@@ -173,7 +173,7 @@ export default function MarketResearchPage() {
                   <Area
                     type="monotone"
                     dataKey="sam"
-                    stroke="#7C5CF6"
+                    stroke="#22D3A4"
                     fill="url(#samG)"
                     strokeWidth={1.5}
                     name="SAM"
@@ -190,7 +190,7 @@ export default function MarketResearchPage() {
               </ResponsiveContainer>
               <div className="flex items-center gap-5 mt-4">
                 {[
-                  { label: "SAM ($B)", color: "#7C5CF6" },
+                  { label: "SAM ($B)", color: "#22D3A4" },
                   { label: "SOM ($B)", color: "#22D3A4" },
                 ].map(({ label, color }) => (
                   <div key={label} className="flex items-center gap-1.5">
@@ -280,9 +280,9 @@ export default function MarketResearchPage() {
                 <Line
                   type="monotone"
                   dataKey="aiMarketingAdoption"
-                  stroke="#7C5CF6"
+                  stroke="#22D3A4"
                   strokeWidth={2}
-                  dot={{ fill: "#7C5CF6", r: 3 }}
+                  dot={{ fill: "#22D3A4", r: 3 }}
                   name="AI Tool Adoption %"
                 />
                 <Line

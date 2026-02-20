@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navItems = [
   { href: "/", label: "Overview" },
@@ -26,12 +27,13 @@ export function Navigation() {
           <div className="flex items-center justify-between h-14">
             {/* Brand mark */}
             <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <rect width="7" height="7" fill="#7C5CF6" />
-                <rect x="11" width="7" height="7" fill="#7C5CF6" fillOpacity="0.35" />
-                <rect y="11" width="7" height="7" fill="#7C5CF6" fillOpacity="0.35" />
-                <rect x="11" y="11" width="7" height="7" fill="#7C5CF6" fillOpacity="0.12" />
-              </svg>
+              <Image
+                src="/inovient-logo.png"
+                alt="Inovient"
+                width={28}
+                height={28}
+                className="rounded object-contain"
+              />
               <span className="text-[#EBEBF5] text-sm font-bold tracking-[0.08em]">INOVIENT</span>
             </Link>
 

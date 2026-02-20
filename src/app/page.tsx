@@ -261,7 +261,7 @@ export default function DashboardPage() {
               {
                 num: "A",
                 title: "Market Opportunity",
-                body: "$64.6B AI marketing SAM at 36.6% CAGR (GVR 2024). We target a $6.6B serviceable segment, competitive intelligence, MMM, and marketing analytics tools accessible to mid-market, growing to $33B by 2030.",
+                body: "$64.6B AI marketing SAM at 36.6% CAGR (GVR 2024). We target a $6.6B serviceable segment (competitive intelligence, MMM, and marketing analytics tools accessible to mid-market), growing to $33B by 2030.",
               },
               {
                 num: "B",
@@ -271,7 +271,7 @@ export default function DashboardPage() {
               {
                 num: "C",
                 title: "Pricing Architecture",
-                body: "$299–$2,499/mo anchored to 4–12x ROI multiples. 78% gross margins, 9:1 blended LTV:CAC, payback under 9 months, top-quartile SaaS benchmarks per OpenView Partners.",
+                body: "$299–$2,499/mo anchored to 4–12x ROI multiples. 78% gross margins, 9:1 blended LTV:CAC, payback under 9 months. Top-quartile SaaS benchmarks per OpenView Partners.",
               },
               {
                 num: "D",

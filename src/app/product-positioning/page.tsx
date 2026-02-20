@@ -7,7 +7,7 @@ const positioningStatement = {
   for: "Marketing teams and agencies at mid-market companies (100–1,000 employees)",
   who: "need enterprise-grade competitive intelligence and media analytics but can't justify $150K+/year contracts",
   is: "the only integrated AI marketing intelligence platform",
-  that: "combines competitor review sentiment benchmarking, managed media mix modeling, and AI strategy recommendations in one workflow, capabilities that previously required three separate enterprise contracts",
+  that: "combines competitor review sentiment benchmarking, managed media mix modeling, and AI strategy recommendations in one workflow. Capabilities that previously required three separate enterprise contracts.",
   unlike:
     "enterprise-only tools like Market Logic ($150K+ contracts), social listening platforms like Sprinklr ($150K+ ACV), or competitive intelligence point solutions like Klue ($20K–$80K/yr) that don't cover media mix or strategy",
   our: "Morpheus was built by marketing practitioners with 40+ years of domain expertise, not a generic AI layer. Every recommendation reflects how real marketing decisions actually get made.",
@@ -66,7 +66,7 @@ const messagingPillars = [
   {
     pillar: "Competitor Intelligence",
     headline: "Know what your competitors' customers actually think",
-    body: "Competitor review sentiment aggregated from G2, Trustpilot, and app stores, updated continuously. The brand health intelligence that enterprise teams pay Brandwatch $40K+/year for, at mid-market pricing.",
+    body: "Competitor review sentiment aggregated from G2, Trustpilot, and app stores, updated continuously. The brand health intelligence that enterprise teams pay Brandwatch $40K+/year for, priced for mid-market.",
     color: "#38BDF8",
   },
   {

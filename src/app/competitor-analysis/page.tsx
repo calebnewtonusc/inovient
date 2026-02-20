@@ -31,9 +31,9 @@ const ttStyle = {
 
 const swotData = {
   strengths: [
-    "The only platform combining competitor review sentiment benchmarking (G2, Trustpilot, app stores), media mix modeling, and strategy AI in one workflow, enterprise capability that Sprinklr charges $150K+/yr for, at mid-market pricing.",
+    "The only platform combining competitor review sentiment benchmarking (G2, Trustpilot, app stores), media mix modeling, and strategy AI in one workflow. Enterprise capability that Sprinklr charges $150K+/yr for, at mid-market pricing.",
     "Accessible MMM: the market has Google Meridian (free but requires a data science team) or Analytic Partners ($150K+/yr). Morpheus is the only managed MMM for teams spending $500K–$5M/year on media.",
-    "40+ years of practitioner domain expertise embedded in AI recommendations. Not a generic LLM wrapper, opinionated, marketing-native intelligence calibrated for real campaign decisions.",
+    "40+ years of practitioner domain expertise embedded in AI recommendations. Not a generic LLM wrapper. Opinionated, marketing-native intelligence calibrated for real campaign decisions.",
   ],
   weaknesses: [
     "Brand recognition is near-zero against Sprinklr, HubSpot, and Klue, each with entrenched sales teams and multi-year customer relationships.",

@@ -191,6 +191,21 @@ export default function ROIModelingPage() {
                 format={(v) => formatCurrency(v, true)}
                 onChange={update("avgDealSize") as (v: number) => void}
               />
+              {/* Model assumptions */}
+              <div className="pt-4 border-t border-[#1E1E2E]">
+                <p className="text-[10px] font-mono uppercase tracking-[0.12em] text-[#38385A] mb-2">
+                  Model Assumptions
+                </p>
+                <div className="space-y-1 text-[11px] text-[#38385A] font-mono">
+                  <p>· 25% reduction in competitive research time</p>
+                  <p>· 10% incremental lead volume via better targeting</p>
+                  <p>· 8% conversion lift from positioning intelligence</p>
+                  <p>· 35% tool consolidation savings</p>
+                </div>
+                <p className="text-[10px] text-[#26263A] mt-2">
+                  Based on published SaaS automation benchmarks. Actual results vary by team and stack.
+                </p>
+              </div>
             </div>
 
             {/* Results panel */}
@@ -199,8 +214,8 @@ export default function ROIModelingPage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   {
-                    label: "Monthly ROI",
-                    value: `${results.roiPercent}%`,
+                    label: "Value Multiple",
+                    value: `${(results.totalBenefit / results.platformCost).toFixed(1)}x`,
                     accent: true,
                   },
                   {

@@ -18,7 +18,7 @@ const personas = [
     title: "VP of Marketing",
     company: "Series B–D SaaS · 50–500 employees",
     description:
-      "Spends 4+ hours per week manually pulling competitor intel and briefing agencies. Morpheus delivers competitor NPS, media mix recommendations, and board-ready briefs in minutes.",
+      "Spends 4+ hours per week manually pulling competitor intel and briefing agencies. Morpheus delivers competitor review sentiment, media mix recommendations, and board-ready briefs in minutes.",
     icon: Target,
     accentColor: "#7C5CF6",
     budget: "$900–$2,500/mo",
@@ -28,7 +28,7 @@ const personas = [
     title: "CMO / Chief Marketing Officer",
     company: "Enterprise · 1,000+ employees",
     description:
-      "Lacks real-time visibility into how customers perceive their brand vs. competitors across channels. Morpheus provides unified NPS benchmarking, automated media mix optimization, and executive-ready AI briefings.",
+      "Lacks real-time visibility into how customers perceive their brand vs. competitors across channels. Morpheus provides unified competitor review sentiment benchmarking, automated media mix optimization, and executive-ready AI briefings.",
     icon: Globe,
     accentColor: "#38BDF8",
     budget: "$2,499–$10,000+/mo",
@@ -78,7 +78,7 @@ const messagingPillars = [
   {
     pillar: "Strategy at Scale",
     headline: "Your AI Chief Strategy Officer",
-    body: "Morpheus synthesizes market signals, NPS data, and media performance into personalized, actionable growth strategies, updated daily.",
+    body: "Morpheus synthesizes market signals, competitor review intelligence, and media performance into personalized, actionable growth strategies, updated daily.",
     color: "#FBBF24",
   },
 ];

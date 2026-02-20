@@ -160,6 +160,9 @@ export default function CompetitorAnalysisPage() {
                     </div>
                   ))}
               </div>
+              <p className="text-[10px] font-mono text-[#38385A] mt-3 pt-3 border-t border-[#1E1E2E]">
+                Scores (0–100) reflect analyst assessment of public product documentation, G2 reviews, pricing pages, and investor materials as of Q1 2026. Not independently audited.
+              </p>
             </ChartCard>
 
             {/* Positioning Matrix */}
@@ -255,7 +258,7 @@ export default function CompetitorAnalysisPage() {
                       "ARR",
                       "Pricing",
                       "Target",
-                      "NPS",
+                      "Sentiment",
                       "Media Mix",
                       "Strategy",
                     ].map((h) => (

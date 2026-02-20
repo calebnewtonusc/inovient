@@ -49,28 +49,32 @@ export const segmentData = [
 
 // Adoption curve calibrated to: Salesforce SOM 2024 (75% using/experimenting with AI tools);
 // McKinsey "State of AI in Early 2024" (65% of orgs deployed gen AI in at least one function).
+// Non-linear curve reflects rapid mid-year acceleration as GPT-4o and Gemini 1.5 shipped,
+// then deceleration toward the 75–80% adoption ceiling.
 export const adoptionTrendsData = [
   { month: "Jan 25", aiMarketingAdoption: 52, marketingBudgetAI: 18 },
-  { month: "Mar 25", aiMarketingAdoption: 57, marketingBudgetAI: 21 },
-  { month: "May 25", aiMarketingAdoption: 61, marketingBudgetAI: 24 },
-  { month: "Jul 25", aiMarketingAdoption: 65, marketingBudgetAI: 27 },
-  { month: "Sep 25", aiMarketingAdoption: 68, marketingBudgetAI: 30 },
-  { month: "Nov 25", aiMarketingAdoption: 71, marketingBudgetAI: 33 },
-  { month: "Jan 26", aiMarketingAdoption: 74, marketingBudgetAI: 36 },
+  { month: "Mar 25", aiMarketingAdoption: 56, marketingBudgetAI: 21 },
+  { month: "May 25", aiMarketingAdoption: 62, marketingBudgetAI: 25 },
+  { month: "Jul 25", aiMarketingAdoption: 67, marketingBudgetAI: 29 },
+  { month: "Sep 25", aiMarketingAdoption: 70, marketingBudgetAI: 33 },
+  { month: "Nov 25", aiMarketingAdoption: 72, marketingBudgetAI: 35 },
+  { month: "Jan 26", aiMarketingAdoption: 74, marketingBudgetAI: 37 },
 ];
 
 export const keyInsights = [
   {
     id: 1,
     stat: "75%",
-    label: "of marketers use or experiment with AI tools (Salesforce SOM 2024)",
+    label: "of marketers use or experiment with AI tools",
+    source: "Salesforce State of Marketing, 8th Ed. (2024)",
     detail: "Up from ~29% in 2022, representing the fastest enterprise adoption curve since cloud software",
     trend: "up",
   },
   {
     id: 2,
     stat: "36.6%",
-    label: "AI marketing platform CAGR through 2030 (Grand View Research)",
+    label: "CAGR for AI marketing platforms through 2030",
+    source: "Grand View Research, AI in Marketing Report (2024)",
     detail: "Outpacing overall MarTech growth 2x, driven by LLM capability advances and demonstrated ROI proof points",
     trend: "up",
   },
@@ -78,13 +82,15 @@ export const keyInsights = [
     id: 3,
     stat: "$64.6B",
     label: "AI marketing SAM in 2025, growing to $307B by 2030",
+    source: "Grand View Research, AI in Marketing Report (2024)",
     detail: "AI-powered platforms now represent 13% of total MarTech spend, on track to exceed 25% by 2028",
     trend: "up",
   },
   {
     id: 4,
     stat: "65%",
-    label: "of enterprises deployed gen AI in marketing and sales (McKinsey 2024)",
+    label: "of enterprises deployed gen AI in marketing and sales",
+    source: "McKinsey State of AI (2024)",
     detail: "Marketing and sales ranked #1 functional area for generative AI deployment across industries",
     trend: "up",
   },

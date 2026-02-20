@@ -78,9 +78,7 @@ export default function DashboardPage() {
                 Market Strategy
               </h1>
               <p className="text-[#6A6A90] text-base leading-relaxed max-w-md">
-                Comprehensive market analysis, competitive positioning, and ROI modeling
-                for Inovient&apos;s Morpheus AI platform. The only end-to-end AI marketing
-                intelligence solution at mid-market pricing.
+                A data-driven market analysis, competitive positioning framework, and pricing strategy for Inovient&apos;s Morpheus AI marketing platform. Research sourced from Grand View Research, McKinsey, Salesforce, and OpenView Partners.
               </p>
             </div>
 
@@ -303,7 +301,8 @@ export default function DashboardPage() {
                 <p className="text-3xl font-black font-mono text-[#EBEBF5] tracking-tight leading-none mb-3">
                   {insight.stat}
                 </p>
-                <p className="text-xs text-[#6A6A90] leading-snug">{insight.label}</p>
+                <p className="text-xs text-[#6A6A90] leading-snug mb-2">{insight.label}</p>
+                <p className="text-[10px] font-mono text-[#38385A] leading-tight">{insight.source}</p>
               </div>
             ))}
           </div>
@@ -322,7 +321,7 @@ export default function DashboardPage() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-[#26263A]">
-                    {["Company", "ARR", "Pricing", "NPS Analytics", "Media Mix", "Strategy AI"].map(
+                    {["Company", "ARR", "Pricing", "Sentiment Intel", "Media Mix", "Strategy AI"].map(
                       (h, i) => (
                         <th
                           key={h}

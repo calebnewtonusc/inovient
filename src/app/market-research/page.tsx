@@ -307,7 +307,8 @@ export default function MarketResearchPage() {
                 <p className="text-4xl font-black font-mono text-[#EBEBF5] tracking-tight leading-none mb-3">
                   {insight.stat}
                 </p>
-                <p className="text-sm text-[#6A6A90] leading-snug">{insight.label}</p>
+                <p className="text-sm text-[#6A6A90] leading-snug mb-3">{insight.label}</p>
+                <p className="text-[10px] font-mono text-[#38385A]">{insight.source}</p>
               </div>
             ))}
           </div>

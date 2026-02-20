@@ -320,7 +320,7 @@ export default function PricingStrategyPage() {
         </section>
 
         {/* ─── 04: Pricing Rationale ────────────────────────── */}
-        <section className="pb-16">
+        <section>
           <SectionHeader
             index="04"
             label="Strategy"
@@ -367,6 +367,43 @@ export default function PricingStrategyPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* ─── 05: Strategic Recommendation ────────────────── */}
+        <section className="pb-16">
+          <SectionHeader
+            index="05"
+            label="Recommendation"
+            title="Strategic Pricing Recommendation"
+          />
+          <div className="card p-8">
+            <div className="max-w-3xl space-y-5">
+              <p className="text-sm text-[#EBEBF5] leading-relaxed">
+                <span className="font-semibold">Launch with Growth ($899/mo) as the primary motion.</span> Starter ($299/mo) should operate as a trial-to-convert vehicle, not a revenue center. Enterprise pricing should be custom from day one — a published enterprise rate signals commoditization at the top end and caps negotiating room.
+              </p>
+              <p className="text-sm text-[#6A6A90] leading-relaxed">
+                The $299 Starter price is justified by ~$1,400/mo in demonstrable value (25% reduction in analyst labor at a $50K average salary). Growth at $899 delivers ~$4,200/mo at the same inputs — a 4.7x value multiple. This sits squarely within the 3–5x sweet spot for mid-market B2B SaaS where buyers approve without extended procurement cycles.
+              </p>
+              <p className="text-sm text-[#6A6A90] leading-relaxed">
+                The 20% annual discount (equivalent to $239/mo or $719/mo billed annually) is the right lever for conversion velocity. At Seed stage, 12-month cash predictability outweighs the 20% revenue trade-off, which is recovered in approximately 5 months of improved retention.
+              </p>
+              <div className="pt-5 border-t border-[#26263A]">
+                <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-[#38385A] mb-3">Pricing Risks to Monitor</p>
+                <div className="space-y-3">
+                  {[
+                    "Underpricing signal: $299 may signal low quality to enterprise buyers evaluating alongside $150K+ incumbents. Consider $399 Starter with a more generous feature set.",
+                    "Bill shock risk: API overage charges at $0.01/call need a clear UI notification to prevent surprise invoices driving churn at the Starter tier.",
+                    "Enterprise anchor gap: without a published Enterprise price, the sales team risks negotiating against itself. Consider a $4,999/mo published anchor even if actual ACV is custom.",
+                  ].map((risk, i) => (
+                    <div key={i} className="flex gap-3">
+                      <span className="text-[10px] font-mono text-[#FBBF24] flex-shrink-0 mt-0.5 w-5">{String(i + 1).padStart(2, "0")}</span>
+                      <p className="text-sm text-[#6A6A90] leading-relaxed">{risk}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>

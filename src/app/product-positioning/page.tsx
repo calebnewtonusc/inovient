@@ -11,7 +11,7 @@ const positioningStatement = {
   morpheus: "Morpheus by Inovient",
   is: "the only end-to-end AI marketing intelligence platform",
   that: "combines real-time NPS competitor benchmarking, instant media mix modeling, and personalized strategy AI in one unified workflow",
-  unlike: "point solutions like Jasper (content-only), HubSpot AI (CRM-native), or Sprinklr (social-only)",
+  unlike: "enterprise-only tools like Market Logic ($50K+ minimums), social-listening point solutions like Sprinklr, or generic AI assistants like Microsoft Copilot",
   our: "Morpheus was built by marketing practitioners with 40+ years of domain expertise — making it the platform that actually understands how marketing decisions get made.",
 };
 
@@ -98,19 +98,19 @@ type MatrixValue = boolean | "partial";
 const differentiationMatrix: Array<{
   capability: string;
   morpheus: MatrixValue;
-  jasper: MatrixValue;
-  hubspot: MatrixValue;
+  marketLogic: MatrixValue;
   sprinklr: MatrixValue;
-  salesforce: MatrixValue;
+  cascade: MatrixValue;
+  hubspot: MatrixValue;
 }> = [
-  { capability: "Real-Time NPS Benchmarking", morpheus: true, jasper: false, hubspot: "partial", sprinklr: "partial", salesforce: false },
-  { capability: "AI Strategy Playbooks", morpheus: true, jasper: false, hubspot: "partial", sprinklr: false, salesforce: "partial" },
-  { capability: "Media Mix Modeling", morpheus: true, jasper: false, hubspot: false, sprinklr: false, salesforce: false },
-  { capability: "Competitor Sentiment Tracking", morpheus: true, jasper: false, hubspot: false, sprinklr: true, salesforce: false },
-  { capability: "Content Generation", morpheus: true, jasper: true, hubspot: true, sprinklr: "partial", salesforce: "partial" },
-  { capability: "Marketing-Native AI Training", morpheus: true, jasper: false, hubspot: false, sprinklr: false, salesforce: false },
-  { capability: "Unified Dashboard", morpheus: true, jasper: false, hubspot: true, sprinklr: true, salesforce: true },
-  { capability: "SMB Accessible Pricing", morpheus: true, jasper: true, hubspot: "partial", sprinklr: false, salesforce: false },
+  { capability: "Real-Time Competitor NPS Benchmarking", morpheus: true, marketLogic: false, sprinklr: "partial", cascade: false, hubspot: false },
+  { capability: "AI Strategy Playbooks", morpheus: true, marketLogic: "partial", sprinklr: false, cascade: true, hubspot: "partial" },
+  { capability: "Media Mix Modeling", morpheus: true, marketLogic: false, sprinklr: false, cascade: false, hubspot: false },
+  { capability: "Competitor Intelligence", morpheus: true, marketLogic: true, sprinklr: true, cascade: false, hubspot: false },
+  { capability: "OKR / KPI Execution Tracking", morpheus: "partial", marketLogic: false, sprinklr: false, cascade: true, hubspot: "partial" },
+  { capability: "Marketing-Native AI", morpheus: true, marketLogic: "partial", sprinklr: false, cascade: false, hubspot: false },
+  { capability: "Accessible Mid-Market Pricing", morpheus: true, marketLogic: false, sprinklr: false, cascade: true, hubspot: "partial" },
+  { capability: "AI Content Generation", morpheus: true, marketLogic: false, sprinklr: "partial", cascade: false, hubspot: true },
 ];
 
 function Indicator({ value }: { value: boolean | "partial" }) {
@@ -247,10 +247,10 @@ export default function ProductPositioningPage() {
                     </th>
                     {[
                       { name: "Morpheus", color: "#6366f1", isUs: true },
-                      { name: "Jasper", color: "#f59e0b", isUs: false },
-                      { name: "HubSpot", color: "#f97316", isUs: false },
+                      { name: "Market Logic", color: "#0ea5e9", isUs: false },
                       { name: "Sprinklr", color: "#ec4899", isUs: false },
-                      { name: "Salesforce", color: "#0ea5e9", isUs: false },
+                      { name: "Cascade", color: "#f59e0b", isUs: false },
+                      { name: "HubSpot", color: "#f97316", isUs: false },
                     ].map(({ name, color, isUs }) => (
                       <th key={name} className="text-center px-4 py-4">
                         <div className="flex flex-col items-center gap-1">
@@ -281,16 +281,16 @@ export default function ProductPositioningPage() {
                         <Indicator value={row.morpheus} />
                       </td>
                       <td className="px-4 py-3 text-center">
-                        <Indicator value={row.jasper} />
-                      </td>
-                      <td className="px-4 py-3 text-center">
-                        <Indicator value={row.hubspot} />
+                        <Indicator value={row.marketLogic} />
                       </td>
                       <td className="px-4 py-3 text-center">
                         <Indicator value={row.sprinklr} />
                       </td>
                       <td className="px-4 py-3 text-center">
-                        <Indicator value={row.salesforce} />
+                        <Indicator value={row.cascade} />
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        <Indicator value={row.hubspot} />
                       </td>
                     </tr>
                   ))}

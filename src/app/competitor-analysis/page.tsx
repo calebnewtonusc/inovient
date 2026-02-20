@@ -23,33 +23,34 @@ import { CheckCircle2, XCircle, TrendingUp, Shield, Zap } from "lucide-react";
 
 const swotData = {
   strengths: [
-    "Only platform combining NPS + media mix + strategy AI",
-    "40+ years domain expertise embedded in AI",
-    "Real-time competitor sentiment benchmarking",
-    "Built by marketers — intuitive UX by design",
-    "Land-and-expand model with high NRR potential",
+    "Only platform combining NPS + media mix + strategy AI in one workflow",
+    "40+ years domain expertise embedded — not generic AI",
+    "Defensible white space: high AI depth + mid-market pricing",
+    "Real-time competitor NPS — no other platform does this at this price",
+    "Land-and-expand model targeting 118%+ NRR",
   ],
   weaknesses: [
-    "Limited brand recognition vs. incumbents",
-    "Smaller dataset vs. Sprinklr/Salesforce",
-    "No enterprise integrations at launch",
-    "Small team — limited implementation support",
+    "Limited brand recognition vs. Market Logic, Sprinklr incumbents",
+    "Smaller training dataset than enterprise-scale platforms",
+    "No enterprise integrations at launch (Salesforce, SAP)",
+    "Small team — implementation support is constrained",
   ],
   opportunities: [
-    "Martech consolidation wave favors all-in-one platforms",
-    "Mid-market is vastly underserved by enterprise AI tools",
-    "Agency channel provides scalable distribution",
-    "GenAI cost drops enable aggressive pricing",
+    "Mid-market ($5M–$250M revenue) is deeply underserved — no tool in this gap",
+    "Market Logic is enterprise-only — Morpheus undercuts them at 90% lower cost",
+    "Cascade Strategy gap: no NPS or media mix — Morpheus is a direct upgrade",
+    "Agency channel: 50% white-label margin creates viral B2B2B distribution",
+    "AI model cost decline enables higher gross margins over time",
   ],
   threats: [
-    "HubSpot/Salesforce could add NPS features",
-    "Open-source LLMs lowering barriers to entry",
-    "Longer enterprise sales cycles squeeze runway",
-    "AI regulatory risk in some markets",
+    "HubSpot or Sprinklr could add media mix modeling as a feature",
+    "Microsoft Copilot's massive reach could commoditize generic AI strategy",
+    "Open-source LLMs lower barriers to building copycat tools",
+    "Longer enterprise sales cycles could squeeze runway",
   ],
 };
 
-const selectedIds = ["inovient", "salesforce-einstein", "jasper", "hubspot-ai"];
+const selectedIds = ["inovient", "sprinklr", "market-logic", "hubspot-ai"];
 
 export default function CompetitorAnalysisPage() {
   const [selectedCompetitors, setSelectedCompetitors] = useState(selectedIds);

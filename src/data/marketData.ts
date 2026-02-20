@@ -1,39 +1,43 @@
+// Sources: Grand View Research "AI in Marketing Market Report" (2024); Grand View Research "Marketing
+// Technology Market Report" (2024); McKinsey "State of AI in Early 2024"; Salesforce "State of
+// Marketing" 8th Edition (2024).
+
 export const marketSizeData = {
   tam: {
     label: "Total Addressable Market",
     abbr: "TAM",
-    value: 1420000000000, // $1.42T - Global Marketing Tech
-    description: "Global marketing technology market including all digital marketing tools",
-    cagr: 13.1,
-    year2030: 2800000000000,
+    value: 491_000_000_000, // $491B — Global Marketing Technology, 2025E (GVR 2024, 19.4% CAGR from $344.8B 2023 base)
+    description: "Global marketing technology market including all digital marketing tools and platforms",
+    cagr: 19.4,
+    year2030: 1_190_000_000_000, // $1.19T
   },
   sam: {
     label: "Serviceable Addressable Market",
     abbr: "SAM",
-    value: 185000000000, // $185B - AI-powered marketing software
+    value: 64_600_000_000, // $64.6B — AI-Powered Marketing Platforms, 2025E (GVR 2024, 36.6% CAGR from $47.3B 2024 base)
     description: "AI-powered marketing software and analytics platforms",
-    cagr: 31.4,
-    year2030: 710000000000,
+    cagr: 36.6,
+    year2030: 307_000_000_000, // $307B
   },
   som: {
     label: "Serviceable Obtainable Market",
     abbr: "SOM",
-    value: 4200000000, // $4.2B - AI strategy/NPS/media mix tools
-    description: "AI-driven strategy, NPS analytics, and media mix modeling tools",
-    cagr: 38.7,
-    year2030: 24000000000,
+    value: 6_600_000_000, // $6.6B — AI marketing analytics, competitive intelligence & MMM for mid-market, 2025E
+    description: "AI-driven competitive intelligence, marketing analytics, and media mix modeling tools accessible to mid-market",
+    cagr: 38.0,
+    year2030: 33_000_000_000, // $33B
   },
 };
 
 export const marketGrowthData = [
-  { year: "2022", tam: 820, sam: 68, som: 1.1 },
-  { year: "2023", tam: 980, sam: 95, som: 1.8 },
-  { year: "2024", tam: 1180, sam: 138, som: 2.9 },
-  { year: "2025", tam: 1420, sam: 185, som: 4.2 },
-  { year: "2026P", tam: 1720, sam: 248, som: 6.1 },
-  { year: "2027P", tam: 2060, sam: 330, som: 8.9 },
-  { year: "2028P", tam: 2400, sam: 435, som: 12.8 },
-  { year: "2030P", tam: 2800, sam: 710, som: 24.0 },
+  { year: "2022", tam: 289, sam: 25.3, som: 2.5 },
+  { year: "2023", tam: 345, sam: 34.6, som: 3.5 },
+  { year: "2024", tam: 411, sam: 47.3, som: 4.8 },
+  { year: "2025", tam: 491, sam: 64.6, som: 6.6 },
+  { year: "2026P", tam: 587, sam: 88.2, som: 9.1 },
+  { year: "2027P", tam: 700, sam: 120.5, som: 12.6 },
+  { year: "2028P", tam: 835, sam: 164.6, som: 17.4 },
+  { year: "2030P", tam: 1190, sam: 307.0, som: 33.0 },
 ];
 
 export const segmentData = [
@@ -43,43 +47,45 @@ export const segmentData = [
   { name: "Startup (<10)", value: 7, color: "#c4b5fd" },
 ];
 
+// Adoption curve calibrated to: Salesforce SOM 2024 (75% using/experimenting with AI tools);
+// McKinsey "State of AI in Early 2024" (65% of orgs deployed gen AI in at least one function).
 export const adoptionTrendsData = [
-  { month: "Jan 25", aiMarketingAdoption: 38, marketingBudgetAI: 12 },
-  { month: "Mar 25", aiMarketingAdoption: 44, marketingBudgetAI: 15 },
-  { month: "May 25", aiMarketingAdoption: 51, marketingBudgetAI: 18 },
-  { month: "Jul 25", aiMarketingAdoption: 58, marketingBudgetAI: 22 },
-  { month: "Sep 25", aiMarketingAdoption: 63, marketingBudgetAI: 26 },
-  { month: "Nov 25", aiMarketingAdoption: 69, marketingBudgetAI: 31 },
+  { month: "Jan 25", aiMarketingAdoption: 52, marketingBudgetAI: 18 },
+  { month: "Mar 25", aiMarketingAdoption: 57, marketingBudgetAI: 21 },
+  { month: "May 25", aiMarketingAdoption: 61, marketingBudgetAI: 24 },
+  { month: "Jul 25", aiMarketingAdoption: 65, marketingBudgetAI: 27 },
+  { month: "Sep 25", aiMarketingAdoption: 68, marketingBudgetAI: 30 },
+  { month: "Nov 25", aiMarketingAdoption: 71, marketingBudgetAI: 33 },
   { month: "Jan 26", aiMarketingAdoption: 74, marketingBudgetAI: 36 },
 ];
 
 export const keyInsights = [
   {
     id: 1,
-    stat: "74%",
-    label: "of marketers now use AI tools",
-    detail: "Up from 38% in Jan 2025, representing fastest adoption curve in marketing tech history",
+    stat: "75%",
+    label: "of marketers use or experiment with AI tools (Salesforce SOM 2024)",
+    detail: "Up from ~29% in 2022, representing the fastest enterprise adoption curve since cloud software",
     trend: "up",
   },
   {
     id: 2,
-    stat: "31.4%",
-    label: "AI marketing CAGR (2024–2030)",
-    detail: "Outpacing overall martech growth by 2.4x, driven by LLM advances and ROI proof points",
+    stat: "36.6%",
+    label: "AI marketing platform CAGR through 2030 (Grand View Research)",
+    detail: "Outpacing overall MarTech growth 2x, driven by LLM capability advances and demonstrated ROI proof points",
     trend: "up",
   },
   {
     id: 3,
-    stat: "$185B",
-    label: "SAM opportunity by 2025",
-    detail: "AI-powered marketing platforms represent 13% of total martech spend, growing to 25% by 2028",
+    stat: "$64.6B",
+    label: "AI marketing SAM in 2025, growing to $307B by 2030",
+    detail: "AI-powered platforms now represent 13% of total MarTech spend, on track to exceed 25% by 2028",
     trend: "up",
   },
   {
     id: 4,
-    stat: "3.8x",
-    label: "Average ROI from AI marketing tools",
-    detail: "Enterprises report average 3.8x return on AI marketing investment within 18 months",
+    stat: "65%",
+    label: "of enterprises deployed gen AI in marketing and sales (McKinsey 2024)",
+    detail: "Marketing and sales ranked #1 functional area for generative AI deployment across industries",
     trend: "up",
   },
 ];

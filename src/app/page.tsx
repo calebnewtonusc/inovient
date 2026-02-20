@@ -87,10 +87,10 @@ export default function DashboardPage() {
             {/* Hero stats: no icons, no colored containers */}
             <div className="grid grid-cols-2 gap-x-10 gap-y-7 lg:gap-x-12">
               {[
-                { label: "SAM 2025", value: "$185B" },
-                { label: "AI CAGR", value: "31.4%" },
+                { label: "SAM 2025", value: "$64.6B" },
+                { label: "AI CAGR", value: "36.6%" },
                 { label: "Gross Margin", value: "78%" },
-                { label: "LTV : CAC", value: "16:1" },
+                { label: "LTV : CAC", value: "9:1" },
               ].map(({ label, value }) => (
                 <div key={label}>
                   <p className="text-3xl sm:text-4xl font-black font-mono text-[#EBEBF5] tracking-tight leading-none">
@@ -263,22 +263,22 @@ export default function DashboardPage() {
               {
                 num: "A",
                 title: "Market Opportunity",
-                body: "$185B SAM at 31.4% CAGR. We target a $4.2B serviceable segment with a clear path to $24B by 2030.",
+                body: "$64.6B AI marketing SAM at 36.6% CAGR (GVR 2024). We target a $6.6B serviceable segment — competitive intelligence, MMM, and marketing analytics tools accessible to mid-market — growing to $33B by 2030.",
               },
               {
                 num: "B",
                 title: "Competitive Advantage",
-                body: "The only platform combining NPS benchmarking, media mix modeling, and strategy AI in one workflow. No competitor replicates all three.",
+                body: "The only platform combining competitor review sentiment benchmarking, media mix modeling, and strategy AI in one mid-market workflow. Sprinklr and Brandwatch charge $150K+/yr for the sentiment piece alone.",
               },
               {
                 num: "C",
                 title: "Pricing Architecture",
-                body: "$299–$2,499/mo anchored to 4–15x ROI multiples. 78% gross margins, 16:1 LTV:CAC, payback under 3 months.",
+                body: "$299–$2,499/mo anchored to 4–12x ROI multiples. 78% gross margins, 9:1 blended LTV:CAC, payback under 9 months — top-quartile SaaS benchmarks per OpenView Partners.",
               },
               {
                 num: "D",
                 title: "Revenue Path",
-                body: "$3.4M ARR by end of 2026, $17.7M by 2028 via enterprise pilots and agency channel. Land-and-expand drives 118%+ NRR.",
+                body: "$3.4M ARR by end of 2026, $17.7M by 2028 via enterprise pilots and agency channel. Land-and-expand drives 115%+ NRR.",
               },
             ].map(({ num, title, body }) => (
               <div key={num} className="bg-[#13131C] p-8 hover:bg-[#15151E] transition-colors">
@@ -315,7 +315,7 @@ export default function DashboardPage() {
             index="04"
             label="Competitive Landscape"
             title="Morpheus vs. The Market"
-            description="Morpheus occupies defensible white space: enterprise-grade AI depth at mid-market pricing. No competitor fully replicates the NPS + media mix + strategy combination."
+            description="Morpheus occupies defensible white space: enterprise-grade AI depth at mid-market pricing. No competitor fully replicates competitor sentiment intelligence + media mix + strategy AI in one accessible platform."
           />
           <div className="card overflow-hidden">
             <div className="overflow-x-auto">

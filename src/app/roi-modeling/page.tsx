@@ -327,7 +327,7 @@ export default function ROIModelingPage() {
             index="02"
             label="Customer Evidence"
             title="ROI Case Studies"
-            description="Verified results from Morpheus customers across industries and company sizes."
+            description="Representative customer scenarios modeled from Morpheus pricing and validated ROI assumptions. Actual results vary by team size, industry, and existing tool stack."
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {roiCaseStudies.map((study) => (

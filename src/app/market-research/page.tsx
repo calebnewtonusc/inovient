@@ -44,7 +44,7 @@ export default function MarketResearchPage() {
           <SectionHeader
             label="Market Research"
             title="Global AI Marketing SaaS Market"
-            description="TAM/SAM/SOM analysis benchmarked against Gartner, IDC, and Forrester projections for AI-powered marketing platforms through 2030."
+            description="TAM/SAM/SOM analysis based on Grand View Research AI in Marketing Report (2024), McKinsey State of AI Survey (2024), and Salesforce State of Marketing 8th Edition (2024)."
           />
         </div>
       </div>
@@ -88,19 +88,19 @@ export default function MarketResearchPage() {
               {[
                 {
                   label: "TAM: Global Marketing Technology",
-                  value: "$1.42T",
+                  value: "$491B",
                   indent: 0,
                   active: false,
                 },
                 {
                   label: "SAM: AI-Powered Marketing Platforms",
-                  value: "$185B",
+                  value: "$64.6B",
                   indent: 1,
                   active: false,
                 },
                 {
-                  label: "SOM: AI Strategy, NPS + Media Mix Tools",
-                  value: "$4.2B",
+                  label: "SOM: AI Marketing Analytics, CI & MMM (Mid-Market)",
+                  value: "$6.6B",
                   indent: 2,
                   active: true,
                 },

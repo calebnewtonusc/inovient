@@ -31,24 +31,24 @@ const ttStyle = {
 
 const swotData = {
   strengths: [
-    "We're the only platform combining NPS benchmarking, media mix modeling, and strategy AI in one workflow.",
-    "Real-time competitor NPS at mid-market pricing. Nobody else does this.",
-    "40+ years of practitioner expertise is embedded into every recommendation. Not generic AI.",
+    "The only platform combining competitor review sentiment benchmarking (G2, Trustpilot, app stores), media mix modeling, and strategy AI in one workflow — enterprise capability that Sprinklr charges $150K+/yr for, at mid-market pricing.",
+    "Accessible MMM: the market has Google Meridian (free but requires a data science team) or Analytic Partners ($150K+/yr). Morpheus is the only managed MMM for teams spending $500K–$5M/year on media.",
+    "40+ years of practitioner domain expertise embedded in AI recommendations. Not a generic LLM wrapper — opinionated, marketing-native intelligence calibrated for real campaign decisions.",
   ],
   weaknesses: [
-    "Brand recognition is limited. We're entering markets where Sprinklr and Market Logic have entrenched sales teams.",
-    "Enterprise integrations are limited at launch. Salesforce and SAP connectors are on the roadmap.",
-    "Small team means implementation support doesn't scale the same way incumbents can.",
+    "Brand recognition is near-zero against Sprinklr, HubSpot, and Klue — each with entrenched sales teams and multi-year customer relationships.",
+    "Enterprise integrations are limited at launch. Salesforce, SAP, and Adobe Experience Cloud connectors are roadmap items, not shipped product.",
+    "Small team means customer success and implementation support doesn't scale like incumbents. Critical to solve before moving upmarket.",
   ],
   opportunities: [
-    "Mid-market is a $4.2B gap. Market Logic costs $50K+ and Sprinklr isn't built for teams under 1,000 seats.",
-    "Agency white-label at 50% margin creates distribution that grows without headcount.",
-    "Enterprise AI spend is accelerating 31% annually. We're entering at the right time.",
+    "Mid-market is a $6.6B gap. Market Logic requires $150K+ contracts. Sprinklr minimum ACV is $150K. Klue (competitive intel only) starts at $20K/yr. No integrated solution exists below $20K/year.",
+    "Agency white-label at 50% margin creates distribution without headcount. Agencies pay $450/mo and bill $4K–$10K/mo to clients — a natural land-and-expand motion.",
+    "AI marketing spend is accelerating at 36.6% CAGR (GVR). 65% of enterprises now deploy gen AI in marketing and sales (McKinsey 2024). We are entering at the inflection point.",
   ],
   threats: [
-    "HubSpot or Sprinklr could add media mix modeling as a product update, narrowing our differentiation.",
-    "Open-source LLMs lower the barrier to building copycat tools. Speed to market is critical.",
-    "Enterprise sales cycles run 60-120 days. Runway management matters at current burn.",
+    "Google Meridian and Meta Robyn are free open-source MMM frameworks that capable data science teams can run at no marginal cost. This compresses pricing at the low end of the market.",
+    "HubSpot, Sprinklr, or Klue could expand into adjacent capabilities (budget optimization, marketing strategy AI), narrowing differentiation. HubSpot's Breeze AI roadmap is aggressive.",
+    "Enterprise sales cycles run 60–120 days. At current Seed-stage burn, pipeline execution discipline is critical. A slow quarter can be existential.",
   ],
 };
 

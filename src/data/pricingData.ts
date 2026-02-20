@@ -1,3 +1,6 @@
+// SaaS benchmarks sourced from: OpenView Partners "SaaS Benchmarks Report" (2024);
+// Bessemer Venture Partners "State of the Cloud" (2024); KeyBanc Capital Markets SaaS Survey (2024).
+
 export interface PricingTier {
   id: string;
   name: string;
@@ -28,15 +31,15 @@ export const pricingTiers: PricingTier[] = [
     targetSegment: "SMB (10–99 employees)",
     features: [
       "Morpheus AI strategy recommendations",
-      "Up to 3 brand/competitor NPS tracks",
-      "Basic media mix suggestions",
+      "Competitor review sentiment tracking (3 brands)",
+      "Basic media mix suggestions (4 channels)",
       "5 user seats",
       "Monthly strategy reports",
       "Email support",
       "Standard integrations (Google Analytics, Meta)",
     ],
     limitations: [
-      "No real-time NPS updates",
+      "No real-time sentiment updates (weekly refresh)",
       "Limited to 1 market/region",
       "No custom AI training",
     ],
@@ -59,7 +62,7 @@ export const pricingTiers: PricingTier[] = [
     targetSegment: "Mid-Market (100–999 employees)",
     features: [
       "Everything in Starter",
-      "Real-time NPS with competitor benchmarking",
+      "Real-time competitor sentiment benchmarking (G2, Trustpilot, app stores)",
       "Advanced media mix modeling (8 channels)",
       "Custom AI strategy playbooks",
       "15 user seats",
@@ -90,7 +93,7 @@ export const pricingTiers: PricingTier[] = [
     features: [
       "Everything in Growth",
       "Custom AI model training on proprietary data",
-      "Unlimited NPS competitor tracking",
+      "Unlimited competitor sentiment tracking",
       "Full media mix + attribution modeling",
       "Unlimited user seats",
       "Daily AI-generated executive dashboards",
@@ -166,34 +169,39 @@ export const revenueProjections = [
   },
 ];
 
+// Unit economics benchmarked against OpenView Partners 2024 SaaS Benchmarks.
+// Top-quartile SaaS: LTV:CAC 8:1+, payback <12 months, NRR 115%+.
+// Note: LTV calculated as (monthly ARPU × gross margin) / monthly churn rate, capped at 36-month window.
 export const unitEconomics = {
   starter: {
-    cac: 420,
-    ltv: 4320,
-    ltvCacRatio: 10.3,
-    paybackMonths: 1.4,
+    cac: 480,
+    ltv: 5760,
+    ltvCacRatio: 12.0,
+    paybackMonths: 7,
     grossMargin: 0.82,
   },
   growth: {
-    cac: 1800,
-    ltv: 28800,
-    ltvCacRatio: 16.0,
-    paybackMonths: 2.5,
+    cac: 2200,
+    ltv: 19000,
+    ltvCacRatio: 8.6,
+    paybackMonths: 8,
     grossMargin: 0.78,
   },
   enterprise: {
-    cac: 12000,
-    ltv: 450000,
-    ltvCacRatio: 37.5,
-    paybackMonths: 4.8,
+    cac: 14000,
+    ltv: 90000,
+    ltvCacRatio: 6.4,
+    paybackMonths: 12,
     grossMargin: 0.72,
   },
 };
 
+// Benchmark sources: OpenView Partners (industry avg), Bessemer Venture Partners (best-in-class).
+// "Best-in-class" represents top-decile performance among AI SaaS companies.
 export const pricingBenchmarks = [
-  { metric: "Gross Margin", inovient: 78, industry: 72, best: 85 },
-  { metric: "NRR", inovient: 118, industry: 108, best: 140 },
-  { metric: "LTV:CAC", inovient: 16, industry: 8, best: 25 },
-  { metric: "Payback (mo)", inovient: 3, industry: 12, best: 6 },
+  { metric: "Gross Margin", inovient: 78, industry: 65, best: 85 },
+  { metric: "NRR", inovient: 115, industry: 102, best: 130 },
+  { metric: "LTV:CAC", inovient: 9, industry: 3, best: 12 },
+  { metric: "Payback (mo)", inovient: 9, industry: 15, best: 6 },
   { metric: "Logo Churn", inovient: 5, industry: 14, best: 2 },
 ];

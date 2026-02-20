@@ -4,13 +4,13 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CheckCircle2, Target, Users, Globe, Zap } from "lucide-react";
 
 const positioningStatement = {
-  for: "Marketing teams and agencies at mid-market to enterprise companies",
-  who: "need to move from intuition-based to AI-driven marketing decisions",
-  is: "the only end-to-end AI marketing intelligence platform",
-  that: "combines real-time NPS competitor benchmarking, instant media mix modeling, and personalized strategy AI in one unified workflow",
+  for: "Marketing teams and agencies at mid-market companies (100–1,000 employees)",
+  who: "need enterprise-grade competitive intelligence and media analytics but can't justify $150K+/year contracts",
+  is: "the only integrated AI marketing intelligence platform",
+  that: "combines competitor review sentiment benchmarking, managed media mix modeling, and AI strategy recommendations in one workflow — capabilities that previously required three separate enterprise contracts",
   unlike:
-    "enterprise-only tools like Market Logic ($50K+ minimums), social-listening solutions like Sprinklr, or generic AI assistants like Microsoft Copilot",
-  our: "Morpheus was built by marketing practitioners with 40+ years of domain expertise, making it the platform that actually understands how marketing decisions get made.",
+    "enterprise-only tools like Market Logic ($150K+ contracts), social listening platforms like Sprinklr ($150K+ ACV), or competitive intelligence point solutions like Klue ($20K–$80K/yr) that don't cover media mix or strategy",
+  our: "Morpheus was built by marketing practitioners with 40+ years of domain expertise — not a generic AI layer. Every recommendation reflects how real marketing decisions actually get made.",
 };
 
 const personas = [
@@ -66,7 +66,7 @@ const messagingPillars = [
   {
     pillar: "Competitor Intelligence",
     headline: "Know what your competitors' customers actually think",
-    body: "Real-time NPS scores for your brand and competitors. Spot sentiment shifts before they become revenue problems.",
+    body: "Competitor review sentiment aggregated from G2, Trustpilot, and app stores — updated continuously. The brand health intelligence that enterprise teams pay Brandwatch $40K+/year for, at mid-market pricing.",
     color: "#38BDF8",
   },
   {
@@ -90,17 +90,17 @@ const differentiationMatrix: Array<{
   morpheus: MatrixValue;
   marketLogic: MatrixValue;
   sprinklr: MatrixValue;
-  cascade: MatrixValue;
+  klue: MatrixValue;
   hubspot: MatrixValue;
 }> = [
-  { capability: "Real-Time Competitor NPS Benchmarking", morpheus: true, marketLogic: false, sprinklr: "partial", cascade: false, hubspot: false },
-  { capability: "AI Strategy Playbooks", morpheus: true, marketLogic: "partial", sprinklr: false, cascade: true, hubspot: "partial" },
-  { capability: "Media Mix Modeling", morpheus: true, marketLogic: false, sprinklr: false, cascade: false, hubspot: false },
-  { capability: "Competitor Intelligence", morpheus: true, marketLogic: true, sprinklr: true, cascade: false, hubspot: false },
-  { capability: "OKR / KPI Execution Tracking", morpheus: "partial", marketLogic: false, sprinklr: false, cascade: true, hubspot: "partial" },
-  { capability: "Marketing-Native AI", morpheus: true, marketLogic: "partial", sprinklr: false, cascade: false, hubspot: false },
-  { capability: "Accessible Mid-Market Pricing", morpheus: true, marketLogic: false, sprinklr: false, cascade: true, hubspot: "partial" },
-  { capability: "AI Content Generation", morpheus: true, marketLogic: false, sprinklr: "partial", cascade: false, hubspot: true },
+  { capability: "Competitor Review Sentiment Benchmarking", morpheus: true, marketLogic: false, sprinklr: true, klue: "partial", hubspot: false },
+  { capability: "AI Strategy Playbooks", morpheus: true, marketLogic: "partial", sprinklr: false, klue: false, hubspot: "partial" },
+  { capability: "Media Mix Modeling", morpheus: true, marketLogic: false, sprinklr: false, klue: false, hubspot: false },
+  { capability: "Competitor Intelligence", morpheus: true, marketLogic: true, sprinklr: true, klue: true, hubspot: false },
+  { capability: "Accessible Mid-Market Pricing (<$5K/mo)", morpheus: true, marketLogic: false, sprinklr: false, klue: "partial", hubspot: "partial" },
+  { capability: "Marketing-Native AI Recommendations", morpheus: true, marketLogic: "partial", sprinklr: false, klue: false, hubspot: false },
+  { capability: "Sales Battlecard Generation", morpheus: false, marketLogic: false, sprinklr: false, klue: true, hubspot: false },
+  { capability: "AI Content Generation", morpheus: true, marketLogic: false, sprinklr: "partial", klue: false, hubspot: true },
 ];
 
 function Indicator({ value }: { value: MatrixValue }) {
@@ -213,7 +213,7 @@ export default function ProductPositioningPage() {
                       { name: "Morpheus", color: "#7C5CF6", isUs: true },
                       { name: "Market Logic", color: "#38BDF8", isUs: false },
                       { name: "Sprinklr", color: "#F87171", isUs: false },
-                      { name: "Cascade", color: "#FBBF24", isUs: false },
+                      { name: "Klue", color: "#FBBF24", isUs: false },
                       { name: "HubSpot", color: "#22D3A4", isUs: false },
                     ].map(({ name, color, isUs }) => (
                       <th key={name} className="text-center px-4 py-3.5">
@@ -240,7 +240,7 @@ export default function ProductPositioningPage() {
                       <td className="px-4 py-3.5 text-center"><Indicator value={row.morpheus} /></td>
                       <td className="px-4 py-3.5 text-center"><Indicator value={row.marketLogic} /></td>
                       <td className="px-4 py-3.5 text-center"><Indicator value={row.sprinklr} /></td>
-                      <td className="px-4 py-3.5 text-center"><Indicator value={row.cascade} /></td>
+                      <td className="px-4 py-3.5 text-center"><Indicator value={row.klue} /></td>
                       <td className="px-4 py-3.5 text-center"><Indicator value={row.hubspot} /></td>
                     </tr>
                   ))}

@@ -341,7 +341,7 @@ export default function PricingStrategyPage() {
               {
                 n: "03",
                 title: "Land and Expand",
-                desc: "Start SMBs at Starter, target upgrade to Growth at 3 months. Enterprise pilots via Growth before full deployment. NRR target: 118%+.",
+                desc: "Start SMBs at Starter, target upgrade to Growth at 3 months. Enterprise pilots via Growth before full deployment. NRR target: 115%+ — top-quartile SaaS per OpenView Partners benchmarks.",
               },
               {
                 n: "04",

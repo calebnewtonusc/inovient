@@ -30,8 +30,8 @@ export function Navigation() {
               <Image
                 src="/inovient-logo.png"
                 alt="Inovient"
-                width={44}
-                height={44}
+                width={80}
+                height={80}
                 className="object-contain invert"
               />
             </Link>

@@ -10,100 +10,114 @@ import {
   ResponsiveContainer,
   AreaChart,
   Area,
-  Cell,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  Radar,
 } from "recharts";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ChartCard } from "@/components/ui/ChartCard";
-import { pricingTiers, revenueProjections, unitEconomics, pricingBenchmarks } from "@/data/pricingData";
+import {
+  pricingTiers,
+  revenueProjections,
+  unitEconomics,
+  pricingBenchmarks,
+} from "@/data/pricingData";
 import { formatCurrency } from "@/lib/utils";
-import { Check, DollarSign, TrendingUp, Zap, Star } from "lucide-react";
+import { Check } from "lucide-react";
+
+const ttStyle = {
+  background: "#13131C",
+  border: "1px solid #26263A",
+  borderRadius: "4px",
+  color: "#EBEBF5",
+  fontSize: "12px",
+  padding: "8px 12px",
+};
 
 export default function PricingStrategyPage() {
   return (
     <div className="min-h-screen">
-      <div className="border-b border-white/5 bg-gradient-to-r from-sky-950/30 to-transparent">
+      {/* Page header */}
+      <div className="border-b border-[#26263A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <SectionHeader
-            eyebrow="Pricing Strategy"
+            label="Pricing Strategy"
             title="Sustainable Pricing Framework"
-            description="Value-based pricing model designed to maximize NRR, LTV:CAC efficiency, and sustainable ARR growth — benchmarked against top AI SaaS companies."
+            description="Value-based 3-tier pricing model designed to maximize NRR, LTV:CAC efficiency, and ARR growth — benchmarked against top AI SaaS companies."
           />
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
-        {/* Pricing Tiers */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+        {/* ─── 01: Pricing Tiers ────────────────────────────── */}
         <section>
-          <SectionHeader eyebrow="Pricing Tiers" title="3-Tier Pricing Architecture" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <SectionHeader index="01" label="Pricing Tiers" title="3-Tier Architecture" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {pricingTiers.map((tier) => (
               <div
                 key={tier.id}
-                className={`glass-card p-6 flex flex-col transition-all duration-300 hover:border-white/15 relative ${
-                  tier.recommended ? "ring-1 ring-indigo-500/50 scale-[1.02]" : ""
+                className={`flex flex-col rounded-md border p-6 ${
+                  tier.recommended
+                    ? "border-[#7C5CF6]/50 bg-[#7C5CF6]/5"
+                    : "border-[#26263A] bg-[#13131C]"
                 }`}
               >
-                {tier.recommended && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <div className="flex items-center gap-1.5 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      <Star className="w-3 h-3" fill="currentColor" />
-                      Recommended
-                    </div>
-                  </div>
-                )}
-
-                {/* Header */}
+                {/* Tier header */}
                 <div className="mb-6">
-                  <div className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mb-3`}
-                    style={{ backgroundColor: `${tier.color}15`, color: tier.color, border: `1px solid ${tier.color}30` }}>
-                    <Zap className="w-3 h-3" />
-                    {tier.name}
+                  <div className="flex items-center justify-between mb-3">
+                    <span
+                      className="text-[10px] font-mono uppercase tracking-[0.15em]"
+                      style={{ color: tier.color }}
+                    >
+                      {tier.name}
+                    </span>
+                    {tier.recommended && (
+                      <span className="text-[9px] font-mono text-[#7C5CF6] uppercase tracking-wider">
+                        recommended
+                      </span>
+                    )}
                   </div>
-                  <p className="text-sm text-gray-400 mb-4">{tier.subtitle}</p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-white">
+                  <p className="text-xs text-[#6A6A90] mb-4">{tier.subtitle}</p>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-4xl font-black font-mono text-[#EBEBF5]">
                       {formatCurrency(tier.monthlyPrice)}
                     </span>
-                    <span className="text-gray-500 text-sm">/mo</span>
+                    <span className="text-[#38385A] text-sm">/mo</span>
                   </div>
-                  <p className="text-xs text-emerald-400 mt-1">
-                    {formatCurrency(tier.annualPrice)}/mo billed annually (save{" "}
-                    {Math.round((1 - tier.annualPrice / tier.monthlyPrice) * 100)}%)
+                  <p className="text-xs text-[#22D3A4] mt-1">
+                    {formatCurrency(tier.annualPrice)}/mo billed annually — save{" "}
+                    {Math.round((1 - tier.annualPrice / tier.monthlyPrice) * 100)}%
                   </p>
-                  <p className="text-xs text-gray-500 mt-2">{tier.targetSegment}</p>
+                  <p className="text-xs text-[#38385A] mt-1.5">{tier.targetSegment}</p>
                 </div>
 
                 {/* Features */}
                 <div className="flex-1 space-y-2 mb-6">
                   {tier.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-2.5">
-                      <Check className="w-3.5 h-3.5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-xs text-gray-300">{feature}</span>
+                    <div key={feature} className="flex items-start gap-2">
+                      <Check className="w-3.5 h-3.5 text-[#22D3A4] mt-0.5 flex-shrink-0" />
+                      <span className="text-xs text-[#EBEBF5]">{feature}</span>
                     </div>
                   ))}
                   {tier.limitations.map((limitation) => (
-                    <div key={limitation} className="flex items-start gap-2.5 opacity-50">
-                      <div className="w-3.5 h-0.5 bg-gray-600 mt-2 flex-shrink-0" />
-                      <span className="text-xs text-gray-500">{limitation}</span>
+                    <div key={limitation} className="flex items-start gap-2 opacity-40">
+                      <div className="w-3.5 h-px bg-[#38385A] mt-2 flex-shrink-0" />
+                      <span className="text-xs text-[#6A6A90]">{limitation}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* Metrics */}
-                <div className="bg-white/3 rounded-xl p-4 space-y-2">
+                {/* Tier metrics */}
+                <div
+                  className="rounded p-4 space-y-2"
+                  style={{ background: "rgba(255,255,255,0.03)" }}
+                >
                   {[
                     { label: "Target ARR", value: tier.metrics.targetARR },
-                    { label: "Avg Deal Cycle", value: tier.metrics.avgDealCycle },
-                    { label: "Trial Conversion", value: tier.metrics.expectedConversion },
+                    { label: "Deal Cycle", value: tier.metrics.avgDealCycle },
+                    { label: "Trial → Paid", value: tier.metrics.expectedConversion },
                     { label: "Annual Churn", value: tier.metrics.churnRate },
                   ].map(({ label, value }) => (
                     <div key={label} className="flex items-center justify-between">
-                      <span className="text-xs text-gray-500">{label}</span>
-                      <span className="text-xs font-semibold text-gray-200">{value}</span>
+                      <span className="text-[10px] font-mono text-[#38385A]">{label}</span>
+                      <span className="text-xs font-mono text-[#6A6A90]">{value}</span>
                     </div>
                   ))}
                 </div>
@@ -112,172 +126,260 @@ export default function PricingStrategyPage() {
           </div>
         </section>
 
-        {/* Unit Economics */}
+        {/* ─── 02: Unit Economics ───────────────────────────── */}
         <section>
           <SectionHeader
-            eyebrow="Unit Economics"
-            title="LTV, CAC & Payback Analysis"
-            description="Detailed unit economic benchmarks per tier — all metrics exceed top-quartile SaaS benchmarks."
+            index="02"
+            label="Unit Economics"
+            title="LTV, CAC &amp; Payback Analysis"
+            description="All metrics exceed top-quartile SaaS benchmarks across each tier."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            {(["starter", "growth", "enterprise"] as const).map((tier) => {
-              const econ = unitEconomics[tier];
-              const tierInfo = pricingTiers.find((t) => t.id === tier)!;
-              return (
-                <div key={tier} className="glass-card p-6 hover:border-white/10 transition-all">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: tierInfo.color }} />
-                    <span className="text-sm font-semibold text-white capitalize">{tier}</span>
-                  </div>
-                  <div className="space-y-3">
-                    {[
-                      { label: "CAC", value: formatCurrency(econ.cac), sub: "Customer acq. cost" },
-                      { label: "LTV", value: formatCurrency(econ.ltv, true), sub: "Lifetime value" },
-                      { label: "LTV:CAC", value: `${econ.ltvCacRatio}:1`, sub: "Efficiency ratio" },
-                      { label: "Payback", value: `${econ.paybackMonths} mo`, sub: "CAC recovery" },
-                      { label: "Gross Margin", value: `${Math.round(econ.grossMargin * 100)}%`, sub: "After COGS" },
-                    ].map(({ label, value, sub }) => (
-                      <div key={label} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
-                        <div>
-                          <p className="text-xs text-gray-400">{label}</p>
-                          <p className="text-[10px] text-gray-600">{sub}</p>
-                        </div>
-                        <span className="text-sm font-bold text-white">{value}</span>
-                      </div>
+          <div className="card overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-[#26263A]">
+                    <th className="text-left px-5 py-3 text-[10px] font-mono uppercase tracking-[0.12em] text-[#38385A]">
+                      Metric
+                    </th>
+                    {pricingTiers.map((tier) => (
+                      <th
+                        key={tier.id}
+                        className="text-left px-5 py-3 text-[10px] font-mono uppercase tracking-[0.12em]"
+                        style={{ color: tier.color }}
+                      >
+                        {tier.name}
+                      </th>
                     ))}
-                  </div>
-                </div>
-              );
-            })}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    {
+                      label: "CAC",
+                      sub: "Customer acquisition cost",
+                      fn: (t: typeof pricingTiers[0]) =>
+                        formatCurrency(unitEconomics[t.id as keyof typeof unitEconomics].cac),
+                    },
+                    {
+                      label: "LTV",
+                      sub: "Lifetime value",
+                      fn: (t: typeof pricingTiers[0]) =>
+                        formatCurrency(unitEconomics[t.id as keyof typeof unitEconomics].ltv, true),
+                    },
+                    {
+                      label: "LTV:CAC",
+                      sub: "Efficiency ratio",
+                      fn: (t: typeof pricingTiers[0]) =>
+                        `${unitEconomics[t.id as keyof typeof unitEconomics].ltvCacRatio}:1`,
+                    },
+                    {
+                      label: "Payback",
+                      sub: "Months to recover CAC",
+                      fn: (t: typeof pricingTiers[0]) =>
+                        `${unitEconomics[t.id as keyof typeof unitEconomics].paybackMonths} mo`,
+                    },
+                    {
+                      label: "Gross Margin",
+                      sub: "After COGS",
+                      fn: (t: typeof pricingTiers[0]) =>
+                        `${Math.round(unitEconomics[t.id as keyof typeof unitEconomics].grossMargin * 100)}%`,
+                    },
+                  ].map(({ label, sub, fn }) => (
+                    <tr key={label} className="border-b border-[#1E1E2E] last:border-0 hover:bg-[#17171F]">
+                      <td className="px-5 py-3.5">
+                        <p className="text-sm text-[#EBEBF5]">{label}</p>
+                        <p className="text-xs text-[#38385A] mt-0.5">{sub}</p>
+                      </td>
+                      {pricingTiers.map((tier) => (
+                        <td key={tier.id} className="px-5 py-3.5">
+                          <span className="text-sm font-mono font-semibold text-[#EBEBF5]">
+                            {fn(tier)}
+                          </span>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
 
-        {/* Benchmarks & Revenue Projection */}
+        {/* ─── 03: Charts ───────────────────────────────────── */}
         <section>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <SectionHeader index="03" label="Analysis" title="Benchmarks &amp; Revenue Projection" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <ChartCard
-              title="Performance vs. Industry Benchmarks"
+              title="vs. Industry Benchmarks"
               subtitle="Inovient vs. AI SaaS industry average vs. best-in-class"
-              badge="Benchmarked"
             >
               <ResponsiveContainer width="100%" height={280}>
-                <BarChart data={pricingBenchmarks} margin={{ top: 4, right: 4, left: -10, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-                  <XAxis dataKey="metric" tick={{ fill: "#6b7280", fontSize: 11 }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fill: "#6b7280", fontSize: 11 }} axisLine={false} tickLine={false} />
-                  <Tooltip
-                    contentStyle={{ background: "#1a1a2e", border: "1px solid #2d2d4d", borderRadius: "8px", color: "#f0f0f8", fontSize: "12px" }}
+                <BarChart
+                  data={pricingBenchmarks}
+                  margin={{ top: 4, right: 4, left: -10, bottom: 0 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2E" />
+                  <XAxis
+                    dataKey="metric"
+                    tick={{ fill: "#38385A", fontSize: 11 }}
+                    axisLine={false}
+                    tickLine={false}
                   />
-                  <Bar dataKey="industry" name="Industry Avg" fill="#374151" radius={[3, 3, 0, 0]} />
-                  <Bar dataKey="inovient" name="Inovient" fill="#6366f1" radius={[3, 3, 0, 0]} />
-                  <Bar dataKey="best" name="Best-in-Class" fill="#10b981" radius={[3, 3, 0, 0]} />
+                  <YAxis
+                    tick={{ fill: "#38385A", fontSize: 11 }}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <Tooltip contentStyle={ttStyle} />
+                  <Bar dataKey="industry" name="Industry Avg" fill="#26263A" radius={[2, 2, 0, 0]} />
+                  <Bar dataKey="inovient" name="Inovient" fill="#7C5CF6" radius={[2, 2, 0, 0]} />
+                  <Bar dataKey="best" name="Best-in-Class" fill="#22D3A4" radius={[2, 2, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
-              <div className="flex items-center gap-4 mt-3 justify-end">
+              <div className="flex items-center gap-5 mt-4">
                 {[
-                  { label: "Industry Avg", color: "#374151" },
-                  { label: "Inovient", color: "#6366f1" },
-                  { label: "Best-in-Class", color: "#10b981" },
+                  { label: "Industry Avg", color: "#26263A" },
+                  { label: "Inovient", color: "#7C5CF6" },
+                  { label: "Best-in-Class", color: "#22D3A4" },
                 ].map(({ label, color }) => (
                   <div key={label} className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: color }} />
-                    <span className="text-xs text-gray-400">{label}</span>
+                    <div
+                      className="w-2 h-2 rounded-full border border-[#38385A]"
+                      style={{ backgroundColor: color }}
+                    />
+                    <span className="text-xs text-[#6A6A90]">{label}</span>
                   </div>
                 ))}
               </div>
             </ChartCard>
 
             <ChartCard
-              title="5-Year ARR Projection"
-              subtitle="Revenue growth by tier ($K) with land-and-expand motion"
-              badge="Forecast"
+              title="6-Year ARR Projection"
+              subtitle="Revenue by tier ($K) with land-and-expand motion"
             >
               <ResponsiveContainer width="100%" height={280}>
-                <AreaChart data={revenueProjections} margin={{ top: 4, right: 4, left: -10, bottom: 0 }}>
+                <AreaChart
+                  data={revenueProjections}
+                  margin={{ top: 4, right: 4, left: -10, bottom: 0 }}
+                >
                   <defs>
-                    <linearGradient id="entGrad2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.4} />
-                      <stop offset="95%" stopColor="#0ea5e9" stopOpacity={0} />
+                    <linearGradient id="eg2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#38BDF8" stopOpacity={0.14} />
+                      <stop offset="95%" stopColor="#38BDF8" stopOpacity={0} />
                     </linearGradient>
-                    <linearGradient id="growGrad2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#6366f1" stopOpacity={0.4} />
-                      <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+                    <linearGradient id="gg2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#7C5CF6" stopOpacity={0.14} />
+                      <stop offset="95%" stopColor="#7C5CF6" stopOpacity={0} />
                     </linearGradient>
-                    <linearGradient id="startGrad2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#a78bfa" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#a78bfa" stopOpacity={0} />
+                    <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#22D3A4" stopOpacity={0.1} />
+                      <stop offset="95%" stopColor="#22D3A4" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-                  <XAxis dataKey="year" tick={{ fill: "#6b7280", fontSize: 11 }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fill: "#6b7280", fontSize: 11 }} axisLine={false} tickLine={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2E" />
+                  <XAxis
+                    dataKey="year"
+                    tick={{ fill: "#38385A", fontSize: 11 }}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    tick={{ fill: "#38385A", fontSize: 11 }}
+                    axisLine={false}
+                    tickLine={false}
+                  />
                   <Tooltip
-                    contentStyle={{ background: "#1a1a2e", border: "1px solid #2d2d4d", borderRadius: "8px", color: "#f0f0f8", fontSize: "12px" }}
+                    contentStyle={ttStyle}
                     formatter={(v: number | undefined) => [`$${v}K`, ""]}
                   />
-                  <Area type="monotone" dataKey="enterprise" stackId="1" stroke="#0ea5e9" fill="url(#entGrad2)" strokeWidth={2} name="Enterprise" />
-                  <Area type="monotone" dataKey="growth" stackId="1" stroke="#6366f1" fill="url(#growGrad2)" strokeWidth={2} name="Growth" />
-                  <Area type="monotone" dataKey="starter" stackId="1" stroke="#a78bfa" fill="url(#startGrad2)" strokeWidth={2} name="Starter" />
+                  <Area
+                    type="monotone"
+                    dataKey="enterprise"
+                    stackId="1"
+                    stroke="#38BDF8"
+                    fill="url(#eg2)"
+                    strokeWidth={1.5}
+                    name="Enterprise"
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="growth"
+                    stackId="1"
+                    stroke="#7C5CF6"
+                    fill="url(#gg2)"
+                    strokeWidth={1.5}
+                    name="Growth"
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="starter"
+                    stackId="1"
+                    stroke="#22D3A4"
+                    fill="url(#sg2)"
+                    strokeWidth={1.5}
+                    name="Starter"
+                  />
                 </AreaChart>
               </ResponsiveContainer>
             </ChartCard>
           </div>
         </section>
 
-        {/* Strategic Pricing Rationale */}
+        {/* ─── 04: Pricing Rationale ────────────────────────── */}
         <section className="pb-16">
-          <SectionHeader eyebrow="Strategy" title="Pricing Rationale &amp; GTM Recommendations" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <SectionHeader
+            index="04"
+            label="Strategy"
+            title="Pricing Rationale &amp; GTM Recommendations"
+          />
+          <div className="space-y-0">
             {[
               {
+                n: "01",
                 title: "Value-Based Anchoring",
-                desc: "Price to ROI: Starter ($299/mo) delivers ~$1,400/mo in value (4.7x). Growth ($899/mo) delivers ~$4,200/mo (4.7x). Enterprise is outcome-based.",
-                icon: DollarSign,
-                color: "text-indigo-400",
-                bg: "bg-indigo-500/10",
+                desc: "Price to ROI: Starter ($299/mo) delivers ~$1,400/mo in value (4.7x). Growth ($899/mo) delivers ~$4,200/mo (4.7x). Enterprise pricing is outcome-based with custom ROI modeling in the sales cycle.",
               },
               {
+                n: "02",
                 title: "Annual Discount Strategy",
-                desc: "20% annual discount encourages commitment, reduces churn risk, and improves cash flow predictability — critical for runway management at Seed stage.",
-                icon: TrendingUp,
-                color: "text-emerald-400",
-                bg: "bg-emerald-500/10",
+                desc: "20% annual discount encourages upfront commitment, reduces churn risk, and improves cash flow predictability — critical for runway management at Seed stage.",
               },
               {
-                title: "Land & Expand Motion",
-                desc: "Start SMBs at Starter ($299/mo), target upgrade to Growth at 3 months. Enterprise pilots at Growth before full deployment — proven NRR > 118%.",
-                icon: Zap,
-                color: "text-sky-400",
-                bg: "bg-sky-500/10",
+                n: "03",
+                title: "Land &amp; Expand Motion",
+                desc: "Start SMBs at Starter ($299/mo), target upgrade to Growth at 3-month mark. Enterprise pilots via Growth before full deployment. Proven NRR > 118% through this progression.",
               },
               {
+                n: "04",
                 title: "Usage-Based Expansion",
-                desc: "API call overages at $0.01/call above tier limits create natural expansion revenue as customers scale — no friction upgrade path.",
-                icon: TrendingUp,
-                color: "text-purple-400",
-                bg: "bg-purple-500/10",
+                desc: "API call overages at $0.01/call above tier limits create natural expansion revenue as customers scale — a frictionless upgrade path with no sales motion required.",
               },
               {
+                n: "05",
                 title: "Enterprise Pilots",
-                desc: "90-day paid pilots at $4,999 flat — reduces sales risk for Fortune 500 buyers while validating Morpheus ROI before full contract commitment.",
-                icon: DollarSign,
-                color: "text-amber-400",
-                bg: "bg-amber-500/10",
+                desc: "90-day paid pilots at $4,999 flat reduce sales risk for Fortune 500 buyers while validating Morpheus ROI before full contract. Conversion rate: 25–40% pilot-to-contract.",
               },
               {
+                n: "06",
                 title: "Agency Channel",
-                desc: "50% agency margin for white-label resellers creates scalable distribution without direct sales headcount — targeting 30% of ARR through channel by 2027.",
-                icon: Zap,
-                color: "text-rose-400",
-                bg: "bg-rose-500/10",
+                desc: "50% agency margin on white-label resellers creates scalable distribution without direct sales headcount — targeting 30% of total ARR through channel by 2027.",
               },
-            ].map(({ title, desc, icon: Icon, color, bg }) => (
-              <div key={title} className="glass-card p-5 hover:border-white/10 transition-all">
-                <div className={`inline-flex p-2 rounded-lg ${bg} mb-3`}>
-                  <Icon className={`w-4 h-4 ${color}`} />
+            ].map(({ n, title, desc }) => (
+              <div
+                key={n}
+                className="flex gap-6 py-6 border-b border-[#1E1E2E] last:border-0"
+              >
+                <span className="text-[10px] font-mono text-[#38385A] flex-shrink-0 mt-0.5 w-5">
+                  {n}
+                </span>
+                <div>
+                  <h3 className="text-sm font-semibold text-[#EBEBF5] mb-1.5">{title}</h3>
+                  <p
+                    className="text-sm text-[#6A6A90] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: desc }}
+                  />
                 </div>
-                <h3 className="text-sm font-semibold text-white mb-2">{title}</h3>
-                <p className="text-xs text-gray-400 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>

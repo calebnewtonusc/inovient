@@ -19,7 +19,15 @@ import {
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ChartCard } from "@/components/ui/ChartCard";
 import { competitors, radarMetrics, positioningMatrix } from "@/data/competitorData";
-import { CheckCircle2, XCircle, TrendingUp, Shield, Zap } from "lucide-react";
+
+const ttStyle = {
+  background: "#13131C",
+  border: "1px solid #26263A",
+  borderRadius: "4px",
+  color: "#EBEBF5",
+  fontSize: "12px",
+  padding: "8px 12px",
+};
 
 const swotData = {
   strengths: [
@@ -33,31 +41,30 @@ const swotData = {
     "Limited brand recognition vs. Market Logic, Sprinklr incumbents",
     "Smaller training dataset than enterprise-scale platforms",
     "No enterprise integrations at launch (Salesforce, SAP)",
-    "Small team — implementation support is constrained",
+    "Small team — implementation support is constrained at scale",
   ],
   opportunities: [
-    "Mid-market ($5M–$250M revenue) is deeply underserved — no tool in this gap",
+    "Mid-market ($5M–$250M revenue) is deeply underserved — no tool fills this gap",
     "Market Logic is enterprise-only — Morpheus undercuts them at 90% lower cost",
     "Cascade Strategy gap: no NPS or media mix — Morpheus is a direct upgrade",
     "Agency channel: 50% white-label margin creates viral B2B2B distribution",
-    "AI model cost decline enables higher gross margins over time",
+    "AI model cost decline enables expanding gross margins over time",
   ],
   threats: [
     "HubSpot or Sprinklr could add media mix modeling as a feature",
     "Microsoft Copilot's massive reach could commoditize generic AI strategy",
     "Open-source LLMs lower barriers to building copycat tools",
-    "Longer enterprise sales cycles could squeeze runway",
+    "Longer enterprise sales cycles could pressure runway at current burn rate",
   ],
 };
 
-const selectedIds = ["inovient", "sprinklr", "market-logic", "hubspot-ai"];
+const defaultSelected = ["inovient", "sprinklr", "market-logic", "hubspot-ai"];
 
 export default function CompetitorAnalysisPage() {
-  const [selectedCompetitors, setSelectedCompetitors] = useState(selectedIds);
-  const [activeCompetitor, setActiveCompetitor] = useState<string | null>(null);
+  const [selectedCompetitors, setSelectedCompetitors] = useState(defaultSelected);
 
   const toggleCompetitor = (id: string) => {
-    if (id === "inovient") return; // always show Inovient
+    if (id === "inovient") return;
     setSelectedCompetitors((prev) =>
       prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
     );
@@ -73,60 +80,61 @@ export default function CompetitorAnalysisPage() {
     return entry;
   });
 
-  const activeComp = activeCompetitor
-    ? competitors.find((c) => c.id === activeCompetitor)
-    : competitors[0];
-
   return (
     <div className="min-h-screen">
-      <div className="border-b border-white/5 bg-gradient-to-r from-purple-950/30 to-transparent">
+      {/* Page header */}
+      <div className="border-b border-[#26263A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <SectionHeader
-            eyebrow="Competitor Analysis"
+            label="Competitor Analysis"
             title="Competitive Landscape Deep Dive"
-            description="Comprehensive analysis of 7 key competitors across 8 strategic dimensions — identifying Inovient's defensible white space and unique market positioning."
+            description="7 key competitors scored across 8 strategic dimensions. Morpheus occupies a unique position: enterprise AI depth at mid-market pricing."
           />
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
-        {/* Competitor selector */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+        {/* ─── 01: Charts ───────────────────────────────────── */}
         <section>
+          <SectionHeader index="01" label="Comparative Analysis" title="Capability Scoring" />
+
+          {/* Competitor selector */}
           <div className="flex flex-wrap gap-2 mb-6">
             {competitors.map((comp) => (
               <button
                 key={comp.id}
-                onClick={() => {
-                  toggleCompetitor(comp.id);
-                  setActiveCompetitor(comp.id);
-                }}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border ${
+                onClick={() => toggleCompetitor(comp.id)}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded text-xs font-medium transition-all border ${
                   selectedCompetitors.includes(comp.id)
-                    ? "text-white border-opacity-50"
-                    : "text-gray-500 border-white/10 hover:text-gray-300"
+                    ? "text-[#EBEBF5] border-transparent"
+                    : "text-[#38385A] border-[#26263A] hover:text-[#6A6A90]"
                 } ${comp.id === "inovient" ? "cursor-default" : "cursor-pointer"}`}
                 style={
                   selectedCompetitors.includes(comp.id)
-                    ? { borderColor: comp.color, backgroundColor: `${comp.color}15`, color: "white" }
+                    ? {
+                        borderColor: comp.color,
+                        backgroundColor: `${comp.color}18`,
+                        color: "#EBEBF5",
+                      }
                     : {}
                 }
               >
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: comp.color }} />
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: comp.color }} />
                 {comp.name.split(" ")[0]}
                 {comp.id === "inovient" && (
-                  <span className="text-[9px] uppercase tracking-wider opacity-70">★</span>
+                  <span className="text-[9px] text-[#7C5CF6]">★</span>
                 )}
               </button>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {/* Radar Chart */}
-            <ChartCard title="Capability Radar" subtitle="Multi-dimensional competitive scoring (0–100)" badge="Interactive">
+            <ChartCard title="8-Dimension Capability Radar" subtitle="Scores 0–100 across core platform capabilities">
               <ResponsiveContainer width="100%" height={360}>
                 <RadarChart data={radarData} margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
-                  <PolarGrid stroke="rgba(255,255,255,0.08)" />
-                  <PolarAngleAxis dataKey="metric" tick={{ fill: "#9ca3af", fontSize: 11 }} />
+                  <PolarGrid stroke="#1E1E2E" />
+                  <PolarAngleAxis dataKey="metric" tick={{ fill: "#38385A", fontSize: 11 }} />
                   {competitors
                     .filter((c) => selectedCompetitors.includes(c.id))
                     .map((comp) => (
@@ -136,22 +144,25 @@ export default function CompetitorAnalysisPage() {
                         dataKey={comp.id}
                         stroke={comp.color}
                         fill={comp.color}
-                        fillOpacity={comp.id === "inovient" ? 0.2 : 0.05}
-                        strokeWidth={comp.id === "inovient" ? 2.5 : 1.5}
+                        fillOpacity={comp.id === "inovient" ? 0.15 : 0.04}
+                        strokeWidth={comp.id === "inovient" ? 2 : 1.5}
                       />
                     ))}
-                  <Tooltip
-                    contentStyle={{ background: "#1a1a2e", border: "1px solid #2d2d4d", borderRadius: "8px", color: "#f0f0f8", fontSize: "12px" }}
-                  />
+                  <Tooltip contentStyle={ttStyle} />
                 </RadarChart>
               </ResponsiveContainer>
-              <div className="flex flex-wrap gap-3 mt-2">
+              <div className="flex flex-wrap gap-4 mt-2">
                 {competitors
                   .filter((c) => selectedCompetitors.includes(c.id))
                   .map((comp) => (
                     <div key={comp.id} className="flex items-center gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: comp.color }} />
-                      <span className="text-xs text-gray-400">{comp.name.split(" ")[0]}</span>
+                      <div
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: comp.color }}
+                      />
+                      <span className="text-xs text-[#6A6A90]">
+                        {comp.name.split(" ")[0]}
+                      </span>
                     </div>
                   ))}
               </div>
@@ -160,42 +171,62 @@ export default function CompetitorAnalysisPage() {
             {/* Positioning Matrix */}
             <ChartCard
               title="Market Positioning Matrix"
-              subtitle="Platform breadth vs. AI specialization — bubble size = ARR scale"
-              badge="Strategic"
+              subtitle="AI specialization vs. marketing focus — bubble size = ARR scale"
             >
               <ResponsiveContainer width="100%" height={360}>
                 <ScatterChart margin={{ top: 10, right: 10, bottom: 20, left: 10 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2E" />
                   <XAxis
                     type="number"
                     dataKey="x"
                     name="AI Specialization"
                     domain={[15, 90]}
-                    tick={{ fill: "#6b7280", fontSize: 11 }}
+                    tick={{ fill: "#38385A", fontSize: 11 }}
                     axisLine={false}
                     tickLine={false}
-                    label={{ value: "AI Specialization →", position: "insideBottom", offset: -8, fill: "#4b5563", fontSize: 11 }}
+                    label={{
+                      value: "AI Specialization →",
+                      position: "insideBottom",
+                      offset: -8,
+                      fill: "#38385A",
+                      fontSize: 10,
+                    }}
                   />
                   <YAxis
                     type="number"
                     dataKey="y"
                     name="Marketing Focus"
                     domain={[40, 95]}
-                    tick={{ fill: "#6b7280", fontSize: 11 }}
+                    tick={{ fill: "#38385A", fontSize: 11 }}
                     axisLine={false}
                     tickLine={false}
-                    label={{ value: "Marketing Focus →", angle: -90, position: "insideLeft", fill: "#4b5563", fontSize: 11 }}
+                    label={{
+                      value: "Marketing Focus →",
+                      angle: -90,
+                      position: "insideLeft",
+                      fill: "#38385A",
+                      fontSize: 10,
+                    }}
                   />
-                  <ZAxis type="number" dataKey="size" range={[60, 800]} />
+                  <ZAxis type="number" dataKey="size" range={[50, 700]} />
                   <Tooltip
                     content={({ active, payload }) => {
                       if (active && payload && payload.length) {
                         const data = payload[0].payload;
                         return (
-                          <div className="bg-[#1a1a2e] border border-[#2d2d4d] rounded-lg p-3 text-sm">
-                            <p className="text-white font-semibold">{data.name}</p>
-                            <p className="text-gray-400 text-xs">AI Score: {data.x}</p>
-                            <p className="text-gray-400 text-xs">Marketing Focus: {data.y}</p>
+                          <div
+                            style={{
+                              background: "#13131C",
+                              border: "1px solid #26263A",
+                              borderRadius: "4px",
+                              padding: "8px 12px",
+                              fontSize: "12px",
+                            }}
+                          >
+                            <p className="font-semibold text-[#EBEBF5]">{data.name}</p>
+                            <p className="text-[#6A6A90] text-xs">
+                              AI Score: {data.x} · Marketing: {data.y}
+                            </p>
                           </div>
                         );
                       }
@@ -204,7 +235,11 @@ export default function CompetitorAnalysisPage() {
                   />
                   <Scatter data={positioningMatrix} isAnimationActive>
                     {positioningMatrix.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} fillOpacity={entry.name === "Inovient" ? 1 : 0.7} />
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={entry.color}
+                        fillOpacity={entry.name === "Inovient" ? 1 : 0.6}
+                      />
                     ))}
                   </Scatter>
                 </ScatterChart>
@@ -213,131 +248,192 @@ export default function CompetitorAnalysisPage() {
           </div>
         </section>
 
-        {/* Competitor Detail Cards */}
+        {/* ─── 02: Competitor Profiles ──────────────────────── */}
         <section>
-          <SectionHeader eyebrow="Profiles" title="Competitor Deep Dives" />
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {competitors.map((comp) => (
-              <div
-                key={comp.id}
-                role="button"
-                tabIndex={0}
-                className={`glass-card p-5 transition-all duration-300 hover:border-white/10 cursor-pointer ${
-                  comp.id === "inovient" ? "ring-1 ring-indigo-500/40" : ""
-                }`}
-                onClick={() => setActiveCompetitor(comp.id === activeCompetitor ? null : comp.id)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setActiveCompetitor(comp.id === activeCompetitor ? null : comp.id);
-                  }
-                }}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: comp.color }} />
-                    <div>
-                      <h3 className={`text-sm font-semibold ${comp.id === "inovient" ? "text-indigo-300" : "text-white"}`}>
-                        {comp.name}
-                      </h3>
-                      <p className="text-xs text-gray-500">{comp.targetMarket}</p>
-                    </div>
-                  </div>
-                  {comp.id === "inovient" && (
-                    <span className="text-[9px] font-bold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                      Us
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-xs text-gray-500 italic mb-3">&ldquo;{comp.tagline}&rdquo;</p>
-
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs text-gray-400">{comp.pricing}</span>
-                  <span className="text-xs font-semibold text-white">{comp.arr}</span>
-                </div>
-
-                {/* Score bars */}
-                <div className="space-y-1.5">
-                  {[
-                    { label: "NPS", key: "npsAnalytics" },
-                    { label: "Media Mix", key: "mediaMix" },
-                    { label: "Strategy AI", key: "strategyDepth" },
-                  ].map(({ label, key }) => (
-                    <div key={key} className="flex items-center gap-2">
-                      <span className="text-[10px] text-gray-500 w-16">{label}</span>
-                      <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                        <div
-                          className="h-full rounded-full transition-all"
-                          style={{
-                            width: `${comp.radarScores[key as keyof typeof comp.radarScores]}%`,
-                            backgroundColor: comp.color,
-                          }}
-                        />
-                      </div>
-                      <span className="text-[10px] text-gray-500 w-6 text-right">
-                        {comp.radarScores[key as keyof typeof comp.radarScores]}
-                      </span>
-                    </div>
+          <SectionHeader index="02" label="Profiles" title="Competitor Detail" />
+          <div className="card overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-[#26263A]">
+                    {[
+                      "Company",
+                      "ARR",
+                      "Pricing",
+                      "Target",
+                      "NPS",
+                      "Media Mix",
+                      "Strategy",
+                    ].map((h) => (
+                      <th
+                        key={h}
+                        className="text-left px-5 py-3 text-[10px] font-mono uppercase tracking-[0.12em] text-[#38385A]"
+                      >
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {competitors.map((comp) => (
+                    <tr
+                      key={comp.id}
+                      className={`border-b border-[#1E1E2E] last:border-0 transition-colors hover:bg-[#17171F] ${
+                        comp.id === "inovient" ? "bg-[#17171F]" : ""
+                      }`}
+                    >
+                      <td className="px-5 py-3.5">
+                        <div className="flex items-center gap-2">
+                          <div
+                            className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                            style={{ backgroundColor: comp.color }}
+                          />
+                          <span
+                            className={`text-sm font-medium ${
+                              comp.id === "inovient"
+                                ? "text-[#7C5CF6]"
+                                : "text-[#EBEBF5]"
+                            }`}
+                          >
+                            {comp.id === "inovient" ? "Morpheus ★" : comp.name}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="px-5 py-3.5 text-xs font-mono text-[#6A6A90]">{comp.arr}</td>
+                      <td className="px-5 py-3.5 text-xs text-[#6A6A90]">{comp.pricing}</td>
+                      <td className="px-5 py-3.5">
+                        <span className="text-[10px] text-[#38385A] font-mono">
+                          {comp.targetMarket}
+                        </span>
+                      </td>
+                      {(["npsAnalytics", "mediaMix", "strategyDepth"] as const).map((metric) => (
+                        <td key={metric} className="px-5 py-3.5">
+                          <div className="flex items-center gap-2">
+                            <div className="w-12 h-0.5 bg-[#1E1E2E] rounded-full overflow-hidden">
+                              <div
+                                className="h-full rounded-full"
+                                style={{
+                                  width: `${comp.radarScores[metric]}%`,
+                                  backgroundColor: comp.color,
+                                }}
+                              />
+                            </div>
+                            <span className="text-xs font-mono text-[#6A6A90]">
+                              {comp.radarScores[metric]}
+                            </span>
+                          </div>
+                        </td>
+                      ))}
+                    </tr>
                   ))}
-                </div>
-              </div>
-            ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
 
-        {/* SWOT Analysis */}
-        <section className="pb-16">
-          <SectionHeader
-            eyebrow="SWOT Analysis"
-            title="Inovient Strategic Position"
-            description="Internal strengths and weaknesses mapped against external market opportunities and threats."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* ─── 03: Strengths / Weaknesses ───────────────────── */}
+        <section>
+          <SectionHeader index="03" label="Profile" title="Inovient Strength &amp; Weakness" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
             {[
               {
+                key: "S",
                 title: "Strengths",
                 items: swotData.strengths,
-                icon: CheckCircle2,
-                color: "text-emerald-400",
-                bg: "bg-emerald-500/5 border-emerald-500/20",
-                dotColor: "bg-emerald-400",
+                accentColor: "#22D3A4",
+                bgClass: "bg-[#22D3A4]/4",
+                borderColor: "#22D3A4",
               },
               {
+                key: "W",
                 title: "Weaknesses",
                 items: swotData.weaknesses,
-                icon: XCircle,
-                color: "text-rose-400",
-                bg: "bg-rose-500/5 border-rose-500/20",
-                dotColor: "bg-rose-400",
+                accentColor: "#F87171",
+                bgClass: "bg-[#F87171]/4",
+                borderColor: "#F87171",
               },
-              {
-                title: "Opportunities",
-                items: swotData.opportunities,
-                icon: TrendingUp,
-                color: "text-indigo-400",
-                bg: "bg-indigo-500/5 border-indigo-500/20",
-                dotColor: "bg-indigo-400",
-              },
-              {
-                title: "Threats",
-                items: swotData.threats,
-                icon: Shield,
-                color: "text-amber-400",
-                bg: "bg-amber-500/5 border-amber-500/20",
-                dotColor: "bg-amber-400",
-              },
-            ].map(({ title, items, icon: Icon, color, bg, dotColor }) => (
-              <div key={title} className={`glass-card p-6 border ${bg}`}>
+            ].map(({ key, title, items, accentColor, bgClass, borderColor }) => (
+              <div
+                key={key}
+                className={`${bgClass} rounded-md border p-6`}
+                style={{ borderColor: `${borderColor}25` }}
+              >
                 <div className="flex items-center gap-2 mb-4">
-                  <Icon className={`w-5 h-5 ${color}`} />
-                  <h3 className={`font-semibold ${color}`}>{title}</h3>
+                  <span
+                    className="text-[10px] font-mono font-bold"
+                    style={{ color: accentColor }}
+                  >
+                    {key}
+                  </span>
+                  <span
+                    className="text-xs font-semibold uppercase tracking-wider"
+                    style={{ color: accentColor }}
+                  >
+                    {title}
+                  </span>
                 </div>
                 <ul className="space-y-2.5">
                   {items.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
-                      <div className={`w-1.5 h-1.5 rounded-full ${dotColor} mt-1.5 flex-shrink-0`} />
-                      <span className="text-sm text-gray-300 leading-relaxed">{item}</span>
+                      <div
+                        className="w-1 h-1 rounded-full mt-2 flex-shrink-0"
+                        style={{ backgroundColor: accentColor }}
+                      />
+                      <span className="text-sm text-[#EBEBF5] leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {[
+              {
+                key: "O",
+                title: "Opportunities",
+                items: swotData.opportunities,
+                accentColor: "#7C5CF6",
+                bgClass: "bg-[#7C5CF6]/4",
+                borderColor: "#7C5CF6",
+              },
+              {
+                key: "T",
+                title: "Threats",
+                items: swotData.threats,
+                accentColor: "#FBBF24",
+                bgClass: "bg-[#FBBF24]/4",
+                borderColor: "#FBBF24",
+              },
+            ].map(({ key, title, items, accentColor, bgClass, borderColor }) => (
+              <div
+                key={key}
+                className={`${bgClass} rounded-md border p-6`}
+                style={{ borderColor: `${borderColor}25` }}
+              >
+                <div className="flex items-center gap-2 mb-4">
+                  <span
+                    className="text-[10px] font-mono font-bold"
+                    style={{ color: accentColor }}
+                  >
+                    {key}
+                  </span>
+                  <span
+                    className="text-xs font-semibold uppercase tracking-wider"
+                    style={{ color: accentColor }}
+                  >
+                    {title}
+                  </span>
+                </div>
+                <ul className="space-y-2.5">
+                  {items.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <div
+                        className="w-1 h-1 rounded-full mt-2 flex-shrink-0"
+                        style={{ backgroundColor: accentColor }}
+                      />
+                      <span className="text-sm text-[#EBEBF5] leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>

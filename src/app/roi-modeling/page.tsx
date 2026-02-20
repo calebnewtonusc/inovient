@@ -13,7 +13,6 @@ import {
 } from "recharts";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ChartCard } from "@/components/ui/ChartCard";
-import { MetricCard } from "@/components/ui/MetricCard";
 import {
   defaultROIInputs,
   calculateROI,
@@ -22,7 +21,15 @@ import {
   type ROIInputs,
 } from "@/data/roiData";
 import { formatCurrency } from "@/lib/utils";
-import { Calculator, TrendingUp, Clock, DollarSign, Users, Zap } from "lucide-react";
+
+const ttStyle = {
+  background: "#13131C",
+  border: "1px solid #26263A",
+  borderRadius: "4px",
+  color: "#EBEBF5",
+  fontSize: "12px",
+  padding: "8px 12px",
+};
 
 function Slider({
   label,
@@ -43,10 +50,14 @@ function Slider({
 }) {
   const id = label.toLowerCase().replace(/\s+/g, "-");
   return (
-    <div className="space-y-2">
+    <div className="space-y-1.5">
       <div className="flex items-center justify-between">
-        <label htmlFor={id} className="text-sm text-gray-400">{label}</label>
-        <span className="text-sm font-semibold text-white" aria-live="polite">{format(value)}</span>
+        <label htmlFor={id} className="text-xs text-[#6A6A90]">
+          {label}
+        </label>
+        <span className="text-xs font-mono font-semibold text-[#EBEBF5]" aria-live="polite">
+          {format(value)}
+        </span>
       </div>
       <input
         id={id}
@@ -58,9 +69,9 @@ function Slider({
         aria-label={label}
         aria-valuetext={format(value)}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-1.5 bg-white/10 rounded-full appearance-none cursor-pointer accent-indigo-500"
+        className="w-full h-0.5 bg-[#26263A] rounded-full appearance-none cursor-pointer accent-[#7C5CF6]"
       />
-      <div className="flex justify-between text-xs text-gray-600" aria-hidden="true">
+      <div className="flex justify-between text-[10px] font-mono text-[#38385A]">
         <span>{format(min)}</span>
         <span>{format(max)}</span>
       </div>
@@ -70,13 +81,12 @@ function Slider({
 
 export default function ROIModelingPage() {
   const [inputs, setInputs] = useState<ROIInputs>(defaultROIInputs);
-
   const results = calculateROI(inputs);
 
   const breakdownData = [
-    { name: "Labor Savings", value: results.laborSavings, color: "#6366f1" },
-    { name: "Revenue Uplift", value: results.revenueUplift, color: "#10b981" },
-    { name: "Tool Savings", value: results.toolConsolidationSavings, color: "#0ea5e9" },
+    { name: "Labor Savings", value: results.laborSavings, color: "#7C5CF6" },
+    { name: "Revenue Uplift", value: results.revenueUplift, color: "#22D3A4" },
+    { name: "Tool Savings", value: results.toolConsolidationSavings, color: "#38BDF8" },
   ];
 
   const update = (field: keyof ROIInputs) => (v: number | string) =>
@@ -84,45 +94,44 @@ export default function ROIModelingPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="border-b border-white/5 bg-gradient-to-r from-emerald-950/30 to-transparent">
+      {/* Page header */}
+      <div className="border-b border-[#26263A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <SectionHeader
-            eyebrow="ROI Modeling"
+            label="ROI Modeling"
             title="Interactive ROI Calculator"
-            description="Model the business impact of Morpheus AI for your organization. Adjust inputs to see real-time ROI projections based on actual customer data."
+            description="Model the business impact of Morpheus for your organization. Adjust inputs to see real-time projections based on verified customer data."
           />
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-        {/* Calculator */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+        {/* ─── 01: Calculator ───────────────────────────────── */}
         <section>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Inputs */}
-            <div className="glass-card p-6 space-y-6">
-              <div className="flex items-center gap-2 mb-2">
-                <Calculator className="w-4 h-4 text-indigo-400" />
-                <h3 className="text-sm font-semibold text-white">Configure Your Model</h3>
-              </div>
+          <SectionHeader index="01" label="Calculator" title="Configure Your Model" />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {/* Input panel */}
+            <div className="card p-6 space-y-6">
+              <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-[#38385A]">
+                Inputs
+              </p>
 
               {/* Tier selector */}
               <div>
-                <label className="text-sm text-gray-400 block mb-2">Select Tier</label>
+                <label className="text-xs text-[#6A6A90] block mb-2">Select Tier</label>
                 <div className="grid grid-cols-3 gap-2">
                   {(["starter", "growth", "enterprise"] as const).map((tier) => (
                     <button
                       key={tier}
                       onClick={() => update("tier")(tier)}
-                      className={`py-2 px-3 rounded-lg text-xs font-semibold transition-all capitalize ${
+                      className={`py-2 px-2 rounded text-xs font-mono transition-all capitalize border ${
                         inputs.tier === tier
-                          ? "bg-indigo-500 text-white"
-                          : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                          ? "border-[#7C5CF6] bg-[#7C5CF6]/15 text-[#EBEBF5]"
+                          : "border-[#26263A] text-[#38385A] hover:border-[#38385A] hover:text-[#6A6A90]"
                       }`}
                     >
                       {tier}
-                      <div className="text-[10px] opacity-70 mt-0.5">
-                        ${tierPrices[tier]}/mo
-                      </div>
+                      <div className="text-[9px] opacity-60 mt-0.5">${tierPrices[tier]}/mo</div>
                     </button>
                   ))}
                 </div>
@@ -184,46 +193,93 @@ export default function ROIModelingPage() {
               />
             </div>
 
-            {/* Results */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Headline ROI */}
+            {/* Results panel */}
+            <div className="lg:col-span-2 space-y-5">
+              {/* Headline stats */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="glass-card p-5 text-center border-indigo-500/30 glow-purple col-span-2 sm:col-span-1">
-                  <p className="text-3xl font-bold gradient-text">{results.roiPercent}%</p>
-                  <p className="text-xs text-gray-400 mt-1">Monthly ROI</p>
-                </div>
-                <div className="glass-card p-5 text-center">
-                  <p className="text-2xl font-bold text-emerald-400">{results.paybackMonths}mo</p>
-                  <p className="text-xs text-gray-400 mt-1">Payback Period</p>
-                </div>
-                <div className="glass-card p-5 text-center">
-                  <p className="text-2xl font-bold text-white">{formatCurrency(results.totalBenefit, true)}</p>
-                  <p className="text-xs text-gray-400 mt-1">Monthly Benefit</p>
-                </div>
-                <div className="glass-card p-5 text-center">
-                  <p className="text-2xl font-bold text-indigo-300">{Math.round(results.timesSaved)}h</p>
-                  <p className="text-xs text-gray-400 mt-1">Hours Saved/Mo</p>
-                </div>
+                {[
+                  {
+                    label: "Monthly ROI",
+                    value: `${results.roiPercent}%`,
+                    accent: true,
+                  },
+                  {
+                    label: "Payback Period",
+                    value: `${results.paybackMonths}mo`,
+                    accent: false,
+                  },
+                  {
+                    label: "Monthly Benefit",
+                    value: formatCurrency(results.totalBenefit, true),
+                    accent: false,
+                  },
+                  {
+                    label: "Hours Saved/Mo",
+                    value: `${Math.round(results.timesSaved)}h`,
+                    accent: false,
+                  },
+                ].map(({ label, value, accent }) => (
+                  <div
+                    key={label}
+                    className={`rounded-md border p-5 text-center ${
+                      accent
+                        ? "border-[#7C5CF6]/40 bg-[#7C5CF6]/8"
+                        : "border-[#26263A] bg-[#13131C]"
+                    }`}
+                  >
+                    <p
+                      className={`text-2xl sm:text-3xl font-black font-mono tracking-tight leading-none ${
+                        accent ? "text-[#7C5CF6]" : "text-[#EBEBF5]"
+                      }`}
+                    >
+                      {value}
+                    </p>
+                    <p className="text-[10px] font-mono text-[#38385A] mt-2 uppercase tracking-wider">
+                      {label}
+                    </p>
+                  </div>
+                ))}
               </div>
 
               {/* Breakdown chart */}
-              <ChartCard title="Monthly Value Breakdown" subtitle="Total benefit decomposed by value driver">
-                <ResponsiveContainer width="100%" height={180}>
-                  <BarChart data={breakdownData} layout="vertical" margin={{ top: 0, right: 20, left: 60, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" horizontal={false} />
+              <ChartCard
+                title="Monthly Value Breakdown"
+                subtitle="Total benefit decomposed by value driver"
+              >
+                <ResponsiveContainer width="100%" height={160}>
+                  <BarChart
+                    data={breakdownData}
+                    layout="vertical"
+                    margin={{ top: 0, right: 16, left: 80, bottom: 0 }}
+                  >
+                    <CartesianGrid
+                      strokeDasharray="3 3"
+                      stroke="#1E1E2E"
+                      horizontal={false}
+                    />
                     <XAxis
                       type="number"
-                      tick={{ fill: "#6b7280", fontSize: 11 }}
+                      tick={{ fill: "#38385A", fontSize: 10 }}
                       axisLine={false}
                       tickLine={false}
                       tickFormatter={(v) => formatCurrency(v, true)}
                     />
-                    <YAxis type="category" dataKey="name" tick={{ fill: "#9ca3af", fontSize: 12 }} axisLine={false} tickLine={false} width={90} />
-                    <Tooltip
-                      contentStyle={{ background: "#1a1a2e", border: "1px solid #2d2d4d", borderRadius: "8px", color: "#f0f0f8", fontSize: "12px" }}
-                      formatter={(v: number | undefined) => [formatCurrency(v ?? 0), ""]}
+                    <YAxis
+                      type="category"
+                      dataKey="name"
+                      tick={{ fill: "#6A6A90", fontSize: 11 }}
+                      axisLine={false}
+                      tickLine={false}
+                      width={80}
                     />
-                    <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+                    <Tooltip
+                      contentStyle={ttStyle}
+                      formatter={(v: number | undefined) => [
+                        formatCurrency(v ?? 0),
+                        "",
+                      ]}
+                    />
+                    <Bar dataKey="value" radius={[0, 3, 3, 0]}>
                       {breakdownData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={entry.color} />
                       ))}
@@ -233,44 +289,61 @@ export default function ROIModelingPage() {
               </ChartCard>
 
               {/* Detail breakdown */}
-              <div className="glass-card p-6">
-                <h3 className="text-sm font-semibold text-white mb-4">Detailed Value Analysis</h3>
-                <div className="space-y-3">
+              <div className="card p-5">
+                <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-[#38385A] mb-4">
+                  Detailed Value Analysis
+                </p>
+                <div className="space-y-0">
                   {[
                     {
-                      label: "Labor Savings (35% productivity gain)",
+                      label: "Labor Savings",
+                      sub: "35% productivity gain",
                       value: formatCurrency(results.laborSavings),
-                      icon: Users,
-                      color: "text-indigo-400",
+                      color: "#7C5CF6",
                     },
                     {
-                      label: "Revenue Uplift (18% more leads, 12% better conversion)",
+                      label: "Revenue Uplift",
+                      sub: "18% more leads + 12% better conversion",
                       value: formatCurrency(results.revenueUplift),
-                      icon: TrendingUp,
-                      color: "text-emerald-400",
+                      color: "#22D3A4",
                     },
                     {
-                      label: "Tool Consolidation (45% stack reduction)",
+                      label: "Tool Consolidation",
+                      sub: "45% stack reduction",
                       value: formatCurrency(results.toolConsolidationSavings),
-                      icon: Zap,
-                      color: "text-sky-400",
+                      color: "#38BDF8",
                     },
-                  ].map(({ label, value, icon: Icon, color }) => (
-                    <div key={label} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
-                      <div className="flex items-center gap-2">
-                        <Icon className={`w-4 h-4 ${color}`} />
-                        <span className="text-sm text-gray-300">{label}</span>
+                  ].map(({ label, sub, value, color }) => (
+                    <div
+                      key={label}
+                      className="flex items-center justify-between py-3 border-b border-[#1E1E2E]"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <div
+                          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: color }}
+                        />
+                        <div>
+                          <p className="text-sm text-[#EBEBF5]">{label}</p>
+                          <p className="text-[10px] text-[#38385A]">{sub}</p>
+                        </div>
                       </div>
-                      <span className="text-sm font-semibold text-white">{value}/mo</span>
+                      <span className="text-sm font-mono font-semibold text-[#EBEBF5]">
+                        {value}/mo
+                      </span>
                     </div>
                   ))}
-                  <div className="flex items-center justify-between pt-2">
-                    <span className="text-sm font-semibold text-gray-200">Platform Cost</span>
-                    <span className="text-sm font-semibold text-rose-400">-{formatCurrency(results.platformCost)}/mo</span>
+                  <div className="flex items-center justify-between py-3 border-b border-[#1E1E2E]">
+                    <span className="text-sm text-[#6A6A90]">Platform Cost</span>
+                    <span className="text-sm font-mono text-[#F87171]">
+                      -{formatCurrency(results.platformCost)}/mo
+                    </span>
                   </div>
-                  <div className="flex items-center justify-between pt-2 border-t border-indigo-500/30">
-                    <span className="text-base font-bold text-white">Net Monthly ROI</span>
-                    <span className="text-base font-bold text-emerald-400">{formatCurrency(results.netROI)}/mo</span>
+                  <div className="flex items-center justify-between py-4 border-t border-[#7C5CF6]/20 mt-1">
+                    <span className="text-sm font-semibold text-[#EBEBF5]">Net Monthly ROI</span>
+                    <span className="text-base font-black font-mono text-[#22D3A4]">
+                      {formatCurrency(results.netROI)}/mo
+                    </span>
                   </div>
                 </div>
               </div>
@@ -278,50 +351,54 @@ export default function ROIModelingPage() {
           </div>
         </section>
 
-        {/* Case Studies */}
+        {/* ─── 02: Case Studies ─────────────────────────────── */}
         <section className="pb-16">
           <SectionHeader
-            eyebrow="Customer Evidence"
+            index="02"
+            label="Customer Evidence"
             title="ROI Case Studies"
-            description="Real results from Morpheus customers across industries and company sizes."
+            description="Verified results from Morpheus customers across industries and company sizes."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {roiCaseStudies.map((study) => (
-              <div key={study.company} className="glass-card p-6 hover:border-white/10 transition-all flex flex-col">
-                <div className="mb-4">
-                  <div className="flex items-start justify-between mb-2">
+              <div key={study.company} className="card p-6 flex flex-col">
+                <div className="mb-5">
+                  <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h3 className="text-white font-semibold text-sm">{study.company}</h3>
-                      <p className="text-xs text-gray-500">{study.industry} · {study.tier} Tier</p>
+                      <h3 className="text-sm font-semibold text-[#EBEBF5]">{study.company}</h3>
+                      <p className="text-xs text-[#38385A] font-mono mt-0.5">
+                        {study.industry} · {study.tier} tier
+                      </p>
                     </div>
-                    <span className="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded-full">
+                    <span className="text-xs font-mono font-bold text-[#22D3A4] flex-shrink-0">
                       {study.results.roiPercent}% ROI
                     </span>
                   </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  {[
-                    { label: "Time Saved", value: study.results.timeSaved, icon: Clock },
-                    { label: "Labor Savings", value: study.results.laborSavings, icon: DollarSign },
-                    { label: "Revenue Impact", value: study.results.revenueImpact, icon: TrendingUp },
-                    { label: "Payback", value: `${study.results.paybackDays} days`, icon: Calculator },
-                  ].map(({ label, value, icon: Icon }) => (
-                    <div key={label} className="bg-white/3 rounded-lg p-3">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <Icon className="w-3 h-3 text-indigo-400" />
-                        <span className="text-[10px] text-gray-500 uppercase tracking-wider">{label}</span>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { label: "Time Saved", value: study.results.timeSaved },
+                      { label: "Labor Savings", value: study.results.laborSavings },
+                      { label: "Revenue Impact", value: study.results.revenueImpact },
+                      { label: "Payback", value: `${study.results.paybackDays} days` },
+                    ].map(({ label, value }) => (
+                      <div
+                        key={label}
+                        className="rounded p-2.5"
+                        style={{ background: "rgba(255,255,255,0.03)" }}
+                      >
+                        <p className="text-[9px] font-mono uppercase tracking-wider text-[#38385A] mb-1">
+                          {label}
+                        </p>
+                        <p className="text-xs font-semibold text-[#EBEBF5]">{value}</p>
                       </div>
-                      <p className="text-sm font-semibold text-white">{value}</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-
-                <blockquote className="flex-1 bg-white/3 rounded-lg p-4">
-                  <p className="text-xs text-gray-300 leading-relaxed italic mb-2">
+                <blockquote className="flex-1 border-l border-[#7C5CF6]/30 pl-4">
+                  <p className="text-xs text-[#6A6A90] leading-relaxed italic mb-2">
                     &ldquo;{study.quote}&rdquo;
                   </p>
-                  <p className="text-[10px] text-gray-500">— {study.author}</p>
+                  <p className="text-[10px] font-mono text-[#38385A]">— {study.author}</p>
                 </blockquote>
               </div>
             ))}

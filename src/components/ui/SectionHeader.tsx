@@ -1,33 +1,42 @@
 import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
-  eyebrow?: string;
+  index?: string;
+  label?: string;
   title: string;
   description?: string;
   className?: string;
-  align?: "left" | "center";
 }
 
 export function SectionHeader({
-  eyebrow,
+  index,
+  label,
   title,
   description,
   className,
-  align = "left",
 }: SectionHeaderProps) {
   return (
-    <div className={cn("mb-8", align === "center" && "text-center", className)}>
-      {eyebrow && (
-        <div className="inline-flex items-center gap-2 mb-3">
-          <div className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-          <span className="text-xs font-semibold text-indigo-400 uppercase tracking-[0.15em]">
-            {eyebrow}
-          </span>
+    <div className={cn("mb-10", className)}>
+      {(index || label) && (
+        <div className="flex items-center gap-2 mb-3">
+          {index && (
+            <span className="text-[10px] font-mono text-[#38385A]">{index}</span>
+          )}
+          {index && label && <div className="h-px w-3 bg-[#26263A]" />}
+          {label && (
+            <span className="text-[10px] font-mono text-[#38385A] uppercase tracking-[0.15em]">
+              {label}
+            </span>
+          )}
         </div>
       )}
-      <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{title}</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold text-[#EBEBF5] tracking-tight leading-tight">
+        {title}
+      </h2>
       {description && (
-        <p className="mt-2 text-gray-400 text-sm leading-relaxed max-w-2xl">{description}</p>
+        <p className="mt-2.5 text-sm text-[#6A6A90] leading-relaxed max-w-2xl">
+          {description}
+        </p>
       )}
     </div>
   );

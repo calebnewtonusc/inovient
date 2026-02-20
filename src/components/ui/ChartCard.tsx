@@ -5,7 +5,6 @@ interface ChartCardProps {
   subtitle?: string;
   children: React.ReactNode;
   className?: string;
-  badge?: string;
   action?: React.ReactNode;
 }
 
@@ -14,24 +13,18 @@ export function ChartCard({
   subtitle,
   children,
   className,
-  badge,
   action,
 }: ChartCardProps) {
   return (
-    <div className={cn("glass-card p-6", className)}>
-      <div className="flex items-start justify-between mb-6">
+    <div className={cn("card p-6", className)}>
+      <div className="flex items-start justify-between mb-5">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <h3 className="text-base font-semibold text-white">{title}</h3>
-            {badge && (
-              <span className="text-[10px] font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                {badge}
-              </span>
-            )}
-          </div>
-          {subtitle && <p className="text-xs text-gray-500">{subtitle}</p>}
+          <h3 className="text-sm font-semibold text-[#EBEBF5]">{title}</h3>
+          {subtitle && (
+            <p className="text-xs text-[#38385A] mt-0.5 leading-relaxed">{subtitle}</p>
+          )}
         </div>
-        {action && <div>{action}</div>}
+        {action && <div className="flex-shrink-0 ml-4">{action}</div>}
       </div>
       {children}
     </div>

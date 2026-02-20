@@ -35,7 +35,7 @@ export function Navigation() {
               <span className="text-[#EBEBF5] text-sm font-bold tracking-[0.08em]">INOVIENT</span>
             </Link>
 
-            {/* Desktop nav — text only, no icons */}
+            {/* Desktop nav: text only, no icons */}
             <div className="hidden md:flex items-center">
               {navItems.map(({ href, label }) => (
                 <Link
@@ -53,7 +53,15 @@ export function Navigation() {
               ))}
             </div>
 
-            <div className="hidden md:block flex-shrink-0">
+            <div className="hidden md:flex items-center gap-4 flex-shrink-0">
+              <a
+                href="https://www.inovient.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] font-mono text-[#38385A] hover:text-[#7C5CF6] transition-colors uppercase tracking-[0.2em]"
+              >
+                inovient.io ↗
+              </a>
               <span className="text-[10px] font-mono text-[#38385A] uppercase tracking-[0.2em]">
                 Q1 2026
               </span>
@@ -89,6 +97,14 @@ export function Navigation() {
                   {label}
                 </Link>
               ))}
+              <a
+                href="https://www.inovient.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-3 py-2.5 text-sm text-[#38385A] hover:text-[#7C5CF6] transition-colors"
+              >
+                inovient.io ↗
+              </a>
             </div>
           </div>
         )}

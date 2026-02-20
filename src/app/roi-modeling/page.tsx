@@ -398,7 +398,7 @@ export default function ROIModelingPage() {
                   <p className="text-xs text-[#6A6A90] leading-relaxed italic mb-2">
                     &ldquo;{study.quote}&rdquo;
                   </p>
-                  <p className="text-[10px] font-mono text-[#38385A]">— {study.author}</p>
+                  <p className="text-[10px] font-mono text-[#38385A]">{study.author}</p>
                 </blockquote>
               </div>
             ))}

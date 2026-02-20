@@ -12,7 +12,7 @@ const positioningStatement = {
   that: "combines real-time NPS competitor benchmarking, instant media mix modeling, and personalized strategy AI in one unified workflow",
   unlike:
     "enterprise-only tools like Market Logic ($50K+ minimums), social-listening solutions like Sprinklr, or generic AI assistants like Microsoft Copilot",
-  our: "Morpheus was built by marketing practitioners with 40+ years of domain expertise — making it the platform that actually understands how marketing decisions get made.",
+  our: "Morpheus was built by marketing practitioners with 40+ years of domain expertise, making it the platform that actually understands how marketing decisions get made.",
 };
 
 const personas = [
@@ -40,7 +40,7 @@ const personas = [
     title: "Marketing Director",
     company: "Regional business (50–200 employees)",
     pain: "Can't afford enterprise tools or agencies, but needs strategic marketing intelligence to compete",
-    gain: "Fortune 500-grade AI strategy at SMB price — replaces 3 tools with one platform",
+    gain: "Fortune 500-grade AI strategy at SMB price, replacing 3 tools with one platform",
     icon: Users,
     accentColor: "#22D3A4",
     budget: "$299–$899/mo",
@@ -50,7 +50,7 @@ const personas = [
     title: "Marketing Agency Principal",
     company: "Digital/creative agency (10–100 FTEs)",
     pain: "Clients demand data-driven strategy but agency doesn't have scalable AI infrastructure",
-    gain: "White-label Morpheus reports at 50% margin — deliver $10K/mo agency value for $450/mo",
+    gain: "White-label Morpheus reports at 50% margin, delivering $10K/mo agency value for $450/mo",
     icon: Zap,
     accentColor: "#FBBF24",
     budget: "$449–$1,249/mo",
@@ -62,7 +62,7 @@ const messagingPillars = [
   {
     pillar: "Built by Marketers",
     headline: "AI that speaks marketing fluently",
-    body: "40+ years of global marketing expertise is embedded into every recommendation Morpheus makes. Not generic AI — opinionated, marketing-native intelligence.",
+    body: "40+ years of global marketing expertise is embedded into every recommendation Morpheus makes. Not generic AI: opinionated, marketing-native intelligence.",
     proof: "Intuit, Pearl Continental, NY212 trust Morpheus for strategic decisions",
     color: "#7C5CF6",
   },
@@ -83,7 +83,7 @@ const messagingPillars = [
   {
     pillar: "Strategy at Scale",
     headline: "Your AI Chief Strategy Officer",
-    body: "Morpheus synthesizes market signals, NPS data, and media performance into personalized, actionable growth strategies — updated daily.",
+    body: "Morpheus synthesizes market signals, NPS data, and media performance into personalized, actionable growth strategies, updated daily.",
     proof: "3.8x average ROI within 18 months of implementation",
     color: "#FBBF24",
   },
@@ -254,7 +254,7 @@ export default function ProductPositioningPage() {
             index="03"
             label="Ideal Customer Profile"
             title="Target Personas"
-            description="Four validated buyer personas — each with distinct pain points, value drivers, and willingness to pay."
+            description="Four validated buyer personas, each with distinct pain points, value drivers, and willingness to pay."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {personas.map(({ title, company, pain, gain, icon: Icon, accentColor, budget, tier }) => (

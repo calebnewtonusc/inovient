@@ -90,30 +90,30 @@ export default function MarketResearchPage() {
           {/* Market funnel */}
           <div className="card p-6">
             <h3 className="text-sm font-semibold text-[#EBEBF5] mb-6">
-              Market Funnel — Inovient&apos;s Addressable Layer
+              Market Funnel: Inovient&apos;s Addressable Layer
             </h3>
             <div className="space-y-2 max-w-2xl">
               {[
                 {
-                  label: "TAM — Global Marketing Technology",
+                  label: "TAM: Global Marketing Technology",
                   value: "$1.42T",
                   indent: 0,
                   active: false,
                 },
                 {
-                  label: "SAM — AI-Powered Marketing Platforms",
+                  label: "SAM: AI-Powered Marketing Platforms",
                   value: "$185B",
                   indent: 1,
                   active: false,
                 },
                 {
-                  label: "SOM — AI Strategy + NPS + Media Mix Tools",
+                  label: "SOM: AI Strategy, NPS + Media Mix Tools",
                   value: "$4.2B",
                   indent: 2,
                   active: true,
                 },
                 {
-                  label: "Year 1 Target — Morpheus Core Market",
+                  label: "Year 1 Target: Morpheus Core Market",
                   value: "$42M",
                   indent: 3,
                   active: true,
@@ -211,7 +211,7 @@ export default function MarketResearchPage() {
 
             <ChartCard
               title="Customer Segment Distribution"
-              subtitle="Addressable customers by company size — 2025"
+              subtitle="Addressable customers by company size, 2025"
             >
               <div className="flex items-center justify-center">
                 <ResponsiveContainer width="100%" height={240}>
@@ -244,7 +244,7 @@ export default function MarketResearchPage() {
                       style={{ backgroundColor: seg.color }}
                     />
                     <span className="text-xs text-[#6A6A90]">
-                      {seg.name} — {seg.value}%
+                      {seg.name}: {seg.value}%
                     </span>
                   </div>
                 ))}
@@ -258,7 +258,7 @@ export default function MarketResearchPage() {
           <SectionHeader index="03" label="Adoption Trends" title="AI Marketing Adoption Curve" />
           <ChartCard
             title="Tool Adoption vs. Budget Allocation"
-            subtitle="% using AI tools vs. % of budget allocated to AI — Jan 2025 to Jan 2026"
+            subtitle="% using AI tools vs. % of budget allocated to AI, Jan 2025 to Jan 2026"
           >
             <ResponsiveContainer width="100%" height={300}>
               <LineChart

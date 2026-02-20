@@ -78,7 +78,7 @@ export const competitors: Competitor[] = [
     ],
     weaknesses: [
       "No media mix modeling or NPS tracking",
-      "Enterprise-only — not accessible to mid-market",
+      "Enterprise-only, not accessible to mid-market",
       "Small integration ecosystem",
       "Low brand recognition outside core verticals",
     ],
@@ -114,7 +114,7 @@ export const competitors: Competitor[] = [
     weaknesses: [
       "No media mix modeling or budget allocation AI",
       "No marketing strategy playbooks",
-      "Very expensive — poor mid-market fit",
+      "Very expensive, poor mid-market fit",
       "Overcomplicated for lean marketing teams",
     ],
     radarScores: {
@@ -184,7 +184,7 @@ export const competitors: Competitor[] = [
     weaknesses: [
       "No NPS competitor benchmarking capability",
       "No media mix or budget allocation AI",
-      "Very high TCO — complex licensing structure",
+      "Very high TCO, complex licensing structure",
       "Requires heavy consulting for implementation",
     ],
     radarScores: {
@@ -217,7 +217,7 @@ export const competitors: Competitor[] = [
       "Rapid iteration leveraging OpenAI partnership",
     ],
     weaknesses: [
-      "Generic AI — no marketing strategy specialization",
+      "Generic AI, no marketing strategy specialization",
       "No NPS analytics, media mix, or competitor intelligence",
       "Quality inconsistent in complex analytical tasks",
       "Not designed for marketing decision-making",

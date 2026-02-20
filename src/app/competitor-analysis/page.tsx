@@ -31,30 +31,24 @@ const ttStyle = {
 
 const swotData = {
   strengths: [
-    "Only platform combining NPS + media mix + strategy AI in one workflow",
-    "40+ years domain expertise embedded — not generic AI",
-    "Defensible white space: high AI depth + mid-market pricing",
-    "Real-time competitor NPS — no other platform does this at this price",
-    "Land-and-expand model targeting 118%+ NRR",
+    "We're the only platform combining NPS benchmarking, media mix modeling, and strategy AI in one workflow.",
+    "Real-time competitor NPS at mid-market pricing. Nobody else does this.",
+    "40+ years of practitioner expertise is embedded into every recommendation. Not generic AI.",
   ],
   weaknesses: [
-    "Limited brand recognition vs. Market Logic, Sprinklr incumbents",
-    "Smaller training dataset than enterprise-scale platforms",
-    "No enterprise integrations at launch (Salesforce, SAP)",
-    "Small team — implementation support is constrained at scale",
+    "Brand recognition is limited. We're entering markets where Sprinklr and Market Logic have entrenched sales teams.",
+    "Enterprise integrations are limited at launch. Salesforce and SAP connectors are on the roadmap.",
+    "Small team means implementation support doesn't scale the same way incumbents can.",
   ],
   opportunities: [
-    "Mid-market ($5M–$250M revenue) is deeply underserved — no tool fills this gap",
-    "Market Logic is enterprise-only — Morpheus undercuts them at 90% lower cost",
-    "Cascade Strategy gap: no NPS or media mix — Morpheus is a direct upgrade",
-    "Agency channel: 50% white-label margin creates viral B2B2B distribution",
-    "AI model cost decline enables expanding gross margins over time",
+    "Mid-market is a $4.2B gap. Market Logic costs $50K+ and Sprinklr isn't built for teams under 1,000 seats.",
+    "Agency white-label at 50% margin creates distribution that grows without headcount.",
+    "Enterprise AI spend is accelerating 31% annually. We're entering at the right time.",
   ],
   threats: [
-    "HubSpot or Sprinklr could add media mix modeling as a feature",
-    "Microsoft Copilot's massive reach could commoditize generic AI strategy",
-    "Open-source LLMs lower barriers to building copycat tools",
-    "Longer enterprise sales cycles could pressure runway at current burn rate",
+    "HubSpot or Sprinklr could add media mix modeling as a product update, narrowing our differentiation.",
+    "Open-source LLMs lower the barrier to building copycat tools. Speed to market is critical.",
+    "Enterprise sales cycles run 60-120 days. Runway management matters at current burn.",
   ],
 };
 
@@ -171,7 +165,7 @@ export default function CompetitorAnalysisPage() {
             {/* Positioning Matrix */}
             <ChartCard
               title="Market Positioning Matrix"
-              subtitle="AI specialization vs. marketing focus — bubble size = ARR scale"
+              subtitle="AI specialization vs. marketing focus (bubble size = ARR scale)"
             >
               <ResponsiveContainer width="100%" height={360}>
                 <ScatterChart margin={{ top: 10, right: 10, bottom: 20, left: 10 }}>
@@ -334,7 +328,7 @@ export default function CompetitorAnalysisPage() {
 
         {/* ─── 03: Strengths / Weaknesses ───────────────────── */}
         <section>
-          <SectionHeader index="03" label="Profile" title="Inovient Strength &amp; Weakness" />
+          <SectionHeader index="03" label="Our Position" title="Morpheus SWOT Analysis" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
             {[
               {

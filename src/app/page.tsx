@@ -38,7 +38,7 @@ const ttStyle = {
 const roadmapItems = [
   {
     quarter: "Q1 2026",
-    milestone: "Growth tier launch — 50 pilot accounts activated",
+    milestone: "Growth tier launch, 50 pilot accounts activated",
     note: "In progress",
     active: true,
   },
@@ -79,12 +79,12 @@ export default function DashboardPage() {
               </h1>
               <p className="text-[#6A6A90] text-base leading-relaxed max-w-md">
                 Comprehensive market analysis, competitive positioning, and ROI modeling
-                for Inovient&apos;s Morpheus AI platform — the only end-to-end AI marketing
+                for Inovient&apos;s Morpheus AI platform. The only end-to-end AI marketing
                 intelligence solution at mid-market pricing.
               </p>
             </div>
 
-            {/* Hero stats — no icons, no colored containers */}
+            {/* Hero stats: no icons, no colored containers */}
             <div className="grid grid-cols-2 gap-x-10 gap-y-7 lg:gap-x-12">
               {[
                 { label: "SAM 2025", value: "$185B" },
@@ -134,7 +134,7 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <ChartCard
               title="5-Year ARR Projection"
-              subtitle="Revenue by tier ($K) — land-and-expand model"
+              subtitle="Revenue by tier ($K), land-and-expand model"
             >
               <ResponsiveContainer width="100%" height={260}>
                 <AreaChart
@@ -263,7 +263,7 @@ export default function DashboardPage() {
               {
                 num: "A",
                 title: "Market Opportunity",
-                body: "$185B SAM growing at 31.4% CAGR — Morpheus targets a $4.2B serviceable segment with a clear path to $24B by 2030. Mid-market is deeply underserved.",
+                body: "$185B SAM growing at 31.4% CAGR. Morpheus targets a $4.2B serviceable segment with a clear path to $24B by 2030. Mid-market is deeply underserved.",
               },
               {
                 num: "B",

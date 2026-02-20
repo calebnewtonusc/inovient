@@ -40,7 +40,7 @@ export default function PricingStrategyPage() {
           <SectionHeader
             label="Pricing Strategy"
             title="Sustainable Pricing Framework"
-            description="Value-based 3-tier pricing model designed to maximize NRR, LTV:CAC efficiency, and ARR growth — benchmarked against top AI SaaS companies."
+            description="Value-based 3-tier pricing model designed to maximize NRR, LTV:CAC efficiency, and ARR growth, benchmarked against top AI SaaS companies."
           />
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function PricingStrategyPage() {
                     <span className="text-[#38385A] text-sm">/mo</span>
                   </div>
                   <p className="text-xs text-[#22D3A4] mt-1">
-                    {formatCurrency(tier.annualPrice)}/mo billed annually — save{" "}
+                    {formatCurrency(tier.annualPrice)}/mo billed annually, save{" "}
                     {Math.round((1 - tier.annualPrice / tier.monthlyPrice) * 100)}%
                   </p>
                   <p className="text-xs text-[#38385A] mt-1.5">{tier.targetSegment}</p>
@@ -343,7 +343,7 @@ export default function PricingStrategyPage() {
               {
                 n: "02",
                 title: "Annual Discount Strategy",
-                desc: "20% annual discount encourages upfront commitment, reduces churn risk, and improves cash flow predictability — critical for runway management at Seed stage.",
+                desc: "20% annual discount encourages upfront commitment, reduces churn risk, and improves cash flow predictability. Critical for runway management at Seed stage.",
               },
               {
                 n: "03",
@@ -353,7 +353,7 @@ export default function PricingStrategyPage() {
               {
                 n: "04",
                 title: "Usage-Based Expansion",
-                desc: "API call overages at $0.01/call above tier limits create natural expansion revenue as customers scale — a frictionless upgrade path with no sales motion required.",
+                desc: "API call overages at $0.01/call above tier limits create natural expansion revenue as customers scale, creating a frictionless upgrade path with no sales motion required.",
               },
               {
                 n: "05",
@@ -363,7 +363,7 @@ export default function PricingStrategyPage() {
               {
                 n: "06",
                 title: "Agency Channel",
-                desc: "50% agency margin on white-label resellers creates scalable distribution without direct sales headcount — targeting 30% of total ARR through channel by 2027.",
+                desc: "50% agency margin on white-label resellers creates scalable distribution without direct sales headcount, targeting 30% of total ARR through channel by 2027.",
               },
             ].map(({ n, title, desc }) => (
               <div

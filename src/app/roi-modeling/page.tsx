@@ -288,62 +288,32 @@ export default function ROIModelingPage() {
                 </ResponsiveContainer>
               </ChartCard>
 
-              {/* Detail breakdown */}
+              {/* Value breakdown */}
               <div className="card p-5">
-                <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-[#38385A] mb-4">
-                  Detailed Value Analysis
+                <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-[#38385A] mb-3">
+                  Value Breakdown
                 </p>
                 <div className="space-y-0">
                   {[
-                    {
-                      label: "Labor Savings",
-                      sub: "35% productivity gain",
-                      value: formatCurrency(results.laborSavings),
-                      color: "#7C5CF6",
-                    },
-                    {
-                      label: "Revenue Uplift",
-                      sub: "18% more leads + 12% better conversion",
-                      value: formatCurrency(results.revenueUplift),
-                      color: "#22D3A4",
-                    },
-                    {
-                      label: "Tool Consolidation",
-                      sub: "45% stack reduction",
-                      value: formatCurrency(results.toolConsolidationSavings),
-                      color: "#38BDF8",
-                    },
-                  ].map(({ label, sub, value, color }) => (
-                    <div
-                      key={label}
-                      className="flex items-center justify-between py-3 border-b border-[#1E1E2E]"
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <div
-                          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                          style={{ backgroundColor: color }}
-                        />
-                        <div>
-                          <p className="text-sm text-[#EBEBF5]">{label}</p>
-                          <p className="text-[10px] text-[#38385A]">{sub}</p>
-                        </div>
+                    { label: "Labor Savings", value: formatCurrency(results.laborSavings), color: "#7C5CF6" },
+                    { label: "Revenue Uplift", value: formatCurrency(results.revenueUplift), color: "#22D3A4" },
+                    { label: "Tool Consolidation", value: formatCurrency(results.toolConsolidationSavings), color: "#38BDF8" },
+                  ].map(({ label, value, color }) => (
+                    <div key={label} className="flex items-center justify-between py-2.5 border-b border-[#1E1E2E]">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+                        <span className="text-sm text-[#EBEBF5]">{label}</span>
                       </div>
-                      <span className="text-sm font-mono font-semibold text-[#EBEBF5]">
-                        {value}/mo
-                      </span>
+                      <span className="text-sm font-mono font-semibold text-[#EBEBF5]">{value}/mo</span>
                     </div>
                   ))}
-                  <div className="flex items-center justify-between py-3 border-b border-[#1E1E2E]">
+                  <div className="flex items-center justify-between py-2.5 border-b border-[#1E1E2E]">
                     <span className="text-sm text-[#6A6A90]">Platform Cost</span>
-                    <span className="text-sm font-mono text-[#F87171]">
-                      -{formatCurrency(results.platformCost)}/mo
-                    </span>
+                    <span className="text-sm font-mono text-[#F87171]">-{formatCurrency(results.platformCost)}/mo</span>
                   </div>
-                  <div className="flex items-center justify-between py-4 border-t border-[#7C5CF6]/20 mt-1">
+                  <div className="flex items-center justify-between pt-3 mt-1">
                     <span className="text-sm font-semibold text-[#EBEBF5]">Net Monthly ROI</span>
-                    <span className="text-base font-black font-mono text-[#22D3A4]">
-                      {formatCurrency(results.netROI)}/mo
-                    </span>
+                    <span className="text-base font-black font-mono text-[#22D3A4]">{formatCurrency(results.netROI)}/mo</span>
                   </div>
                 </div>
               </div>
@@ -361,41 +331,20 @@ export default function ROIModelingPage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {roiCaseStudies.map((study) => (
-              <div key={study.company} className="card p-6 flex flex-col">
+              <div key={study.company} className="card p-7 flex flex-col">
                 <div className="mb-5">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h3 className="text-sm font-semibold text-[#EBEBF5]">{study.company}</h3>
-                      <p className="text-xs text-[#38385A] font-mono mt-0.5">
-                        {study.industry} · {study.tier} tier
-                      </p>
-                    </div>
-                    <span className="text-xs font-mono font-bold text-[#22D3A4] flex-shrink-0">
-                      {study.results.roiPercent}% ROI
+                  <div className="flex items-start justify-between mb-1">
+                    <h3 className="text-sm font-semibold text-[#EBEBF5]">{study.company}</h3>
+                    <span className="text-xl font-black font-mono text-[#22D3A4] flex-shrink-0 leading-none">
+                      {study.results.roiPercent}%
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      { label: "Time Saved", value: study.results.timeSaved },
-                      { label: "Labor Savings", value: study.results.laborSavings },
-                      { label: "Revenue Impact", value: study.results.revenueImpact },
-                      { label: "Payback", value: `${study.results.paybackDays} days` },
-                    ].map(({ label, value }) => (
-                      <div
-                        key={label}
-                        className="rounded p-2.5"
-                        style={{ background: "rgba(255,255,255,0.03)" }}
-                      >
-                        <p className="text-[9px] font-mono uppercase tracking-wider text-[#38385A] mb-1">
-                          {label}
-                        </p>
-                        <p className="text-xs font-semibold text-[#EBEBF5]">{value}</p>
-                      </div>
-                    ))}
-                  </div>
+                  <p className="text-xs text-[#38385A] font-mono">
+                    {study.industry} · {study.tier} · payback in {study.results.paybackDays} days
+                  </p>
                 </div>
                 <blockquote className="flex-1 border-l border-[#7C5CF6]/30 pl-4">
-                  <p className="text-xs text-[#6A6A90] leading-relaxed italic mb-2">
+                  <p className="text-sm text-[#6A6A90] leading-relaxed italic mb-3">
                     &ldquo;{study.quote}&rdquo;
                   </p>
                   <p className="text-[10px] font-mono text-[#38385A]">{study.author}</p>

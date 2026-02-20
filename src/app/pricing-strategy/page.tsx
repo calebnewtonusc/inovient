@@ -88,38 +88,31 @@ export default function PricingStrategyPage() {
                   <p className="text-xs text-[#38385A] mt-1.5">{tier.targetSegment}</p>
                 </div>
 
-                {/* Features */}
-                <div className="flex-1 space-y-2 mb-6">
-                  {tier.features.map((feature) => (
+                {/* Features — top 5 only */}
+                <div className="flex-1 space-y-2.5 mb-5">
+                  {tier.features.slice(0, 5).map((feature) => (
                     <div key={feature} className="flex items-start gap-2">
                       <Check className="w-3.5 h-3.5 text-[#22D3A4] mt-0.5 flex-shrink-0" />
                       <span className="text-xs text-[#EBEBF5]">{feature}</span>
                     </div>
                   ))}
-                  {tier.limitations.map((limitation) => (
-                    <div key={limitation} className="flex items-start gap-2 opacity-40">
-                      <div className="w-3.5 h-px bg-[#38385A] mt-2 flex-shrink-0" />
-                      <span className="text-xs text-[#6A6A90]">{limitation}</span>
-                    </div>
-                  ))}
+                  {tier.features.length > 5 && (
+                    <p className="text-[10px] font-mono text-[#38385A] pl-5">
+                      +{tier.features.length - 5} more features
+                    </p>
+                  )}
                 </div>
 
-                {/* Tier metrics */}
-                <div
-                  className="rounded p-4 space-y-2"
-                  style={{ background: "rgba(255,255,255,0.03)" }}
-                >
-                  {[
-                    { label: "Target ARR", value: tier.metrics.targetARR },
-                    { label: "Deal Cycle", value: tier.metrics.avgDealCycle },
-                    { label: "Trial → Paid", value: tier.metrics.expectedConversion },
-                    { label: "Annual Churn", value: tier.metrics.churnRate },
-                  ].map(({ label, value }) => (
-                    <div key={label} className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono text-[#38385A]">{label}</span>
-                      <span className="text-xs font-mono text-[#6A6A90]">{value}</span>
-                    </div>
-                  ))}
+                {/* 2 key metrics */}
+                <div className="flex items-center justify-between pt-4 border-t border-[#26263A]">
+                  <div>
+                    <p className="text-[10px] font-mono text-[#38385A] mb-0.5">Churn</p>
+                    <p className="text-xs font-mono text-[#6A6A90]">{tier.metrics.churnRate}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[10px] font-mono text-[#38385A] mb-0.5">Deal Cycle</p>
+                    <p className="text-xs font-mono text-[#6A6A90]">{tier.metrics.avgDealCycle}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -338,47 +331,39 @@ export default function PricingStrategyPage() {
               {
                 n: "01",
                 title: "Value-Based Anchoring",
-                desc: "Price to ROI: Starter ($299/mo) delivers ~$1,400/mo in value (4.7x). Growth ($899/mo) delivers ~$4,200/mo (4.7x). Enterprise pricing is outcome-based with custom ROI modeling in the sales cycle.",
+                desc: "Starter at $299/mo delivers ~$1,400/mo in value. Growth at $899/mo delivers ~$4,200/mo. Enterprise pricing is custom, tied to ROI modeling in the sales cycle.",
               },
               {
                 n: "02",
-                title: "Annual Discount Strategy",
-                desc: "20% annual discount encourages upfront commitment, reduces churn risk, and improves cash flow predictability. Critical for runway management at Seed stage.",
+                title: "Annual Discount",
+                desc: "20% annual discount encourages upfront commitment and improves cash flow predictability. Critical for runway management at Seed stage.",
               },
               {
                 n: "03",
-                title: "Land &amp; Expand Motion",
-                desc: "Start SMBs at Starter ($299/mo), target upgrade to Growth at 3-month mark. Enterprise pilots via Growth before full deployment. Proven NRR > 118% through this progression.",
+                title: "Land and Expand",
+                desc: "Start SMBs at Starter, target upgrade to Growth at 3 months. Enterprise pilots via Growth before full deployment. NRR target: 118%+.",
               },
               {
                 n: "04",
                 title: "Usage-Based Expansion",
-                desc: "API call overages at $0.01/call above tier limits create natural expansion revenue as customers scale, creating a frictionless upgrade path with no sales motion required.",
+                desc: "API call overages at $0.01/call above tier limits create natural expansion revenue as customers scale, no sales motion required.",
               },
               {
                 n: "05",
                 title: "Enterprise Pilots",
-                desc: "90-day paid pilots at $4,999 flat reduce sales risk for Fortune 500 buyers while validating Morpheus ROI before full contract. Conversion rate: 25–40% pilot-to-contract.",
+                desc: "90-day paid pilots at $4,999 flat reduce sales risk for Fortune 500 buyers. Pilot-to-contract conversion: 25–40%.",
               },
               {
                 n: "06",
                 title: "Agency Channel",
-                desc: "50% agency margin on white-label resellers creates scalable distribution without direct sales headcount, targeting 30% of total ARR through channel by 2027.",
+                desc: "50% white-label margin creates scalable distribution without headcount. Target: 30% of total ARR through channel by 2027.",
               },
             ].map(({ n, title, desc }) => (
-              <div
-                key={n}
-                className="flex gap-6 py-6 border-b border-[#1E1E2E] last:border-0"
-              >
-                <span className="text-[10px] font-mono text-[#38385A] flex-shrink-0 mt-0.5 w-5">
-                  {n}
-                </span>
+              <div key={n} className="flex gap-6 py-5 border-b border-[#1E1E2E] last:border-0">
+                <span className="text-[10px] font-mono text-[#38385A] flex-shrink-0 mt-0.5 w-5">{n}</span>
                 <div>
-                  <h3 className="text-sm font-semibold text-[#EBEBF5] mb-1.5">{title}</h3>
-                  <p
-                    className="text-sm text-[#6A6A90] leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: desc }}
-                  />
+                  <h3 className="text-sm font-semibold text-[#EBEBF5] mb-1">{title}</h3>
+                  <p className="text-sm text-[#6A6A90] leading-relaxed">{desc}</p>
                 </div>
               </div>
             ))}

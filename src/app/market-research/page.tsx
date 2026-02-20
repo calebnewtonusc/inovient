@@ -56,29 +56,21 @@ export default function MarketResearchPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#26263A] rounded-md overflow-hidden mb-8">
             {Object.values(marketSizeData).map((market) => (
-              <div
-                key={market.abbr}
-                className="bg-[#13131C] p-7 hover:bg-[#15151E] transition-colors"
-              >
-                <div className="flex items-start justify-between mb-5">
-                  <div>
-                    <span className="text-[10px] font-mono text-[#38385A] uppercase tracking-[0.15em]">
-                      {market.abbr}
-                    </span>
-                    <p className="text-xs text-[#6A6A90] mt-0.5">{market.label}</p>
-                  </div>
-                  <span className="text-[10px] font-mono text-[#22D3A4] bg-[#22D3A4]/8 px-2 py-1 rounded">
+              <div key={market.abbr} className="bg-[#13131C] p-8 hover:bg-[#15151E] transition-colors">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-[10px] font-mono text-[#38385A] uppercase tracking-[0.15em]">
+                    {market.abbr}
+                  </span>
+                  <span className="text-[10px] font-mono text-[#22D3A4]">
                     {market.cagr}% CAGR
                   </span>
                 </div>
-                <p className="text-4xl font-black font-mono text-[#EBEBF5] tracking-tight leading-none mb-2">
+                <p className="text-4xl font-black font-mono text-[#EBEBF5] tracking-tight leading-none mb-1">
                   {formatCurrency(market.value, true)}
                 </p>
-                <p className="text-sm text-[#6A6A90] mb-5">{market.description}</p>
-                <div className="border-t border-[#26263A] pt-4">
-                  <p className="text-[10px] font-mono text-[#38385A] uppercase tracking-wider mb-1">
-                    2030 Projection
-                  </p>
+                <p className="text-xs text-[#6A6A90] mb-6">{market.label}</p>
+                <div className="pt-4 border-t border-[#26263A]">
+                  <p className="text-[10px] font-mono text-[#38385A] mb-1">2030</p>
                   <p className="text-xl font-black font-mono text-[#7C5CF6]">
                     {formatCurrency(market.year2030, true)}
                   </p>
@@ -309,14 +301,13 @@ export default function MarketResearchPage() {
         {/* ─── 04: Key Insights ─────────────────────────────── */}
         <section className="pb-16">
           <SectionHeader index="04" label="Analyst Insights" title="Strategic Market Findings" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
             {keyInsights.map((insight) => (
               <div key={insight.id} className="card p-7">
-                <p className="text-5xl font-black font-mono text-[#EBEBF5] tracking-tight leading-none mb-4">
+                <p className="text-4xl font-black font-mono text-[#EBEBF5] tracking-tight leading-none mb-3">
                   {insight.stat}
                 </p>
-                <p className="text-sm font-semibold text-[#EBEBF5] mb-2">{insight.label}</p>
-                <p className="text-sm text-[#6A6A90] leading-relaxed">{insight.detail}</p>
+                <p className="text-sm text-[#6A6A90] leading-snug">{insight.label}</p>
               </div>
             ))}
           </div>

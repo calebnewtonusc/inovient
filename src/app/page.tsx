@@ -263,29 +263,27 @@ export default function DashboardPage() {
               {
                 num: "A",
                 title: "Market Opportunity",
-                body: "$185B SAM growing at 31.4% CAGR. Morpheus targets a $4.2B serviceable segment with a clear path to $24B by 2030. Mid-market is deeply underserved.",
+                body: "$185B SAM at 31.4% CAGR. We target a $4.2B serviceable segment with a clear path to $24B by 2030.",
               },
               {
                 num: "B",
                 title: "Competitive Advantage",
-                body: "The only platform combining NPS benchmarking, media mix modeling, and strategy AI in one workflow. Market Logic covers strategy but costs $50K+/yr. Cascade has no NPS. Sprinklr has no budget AI.",
+                body: "The only platform combining NPS benchmarking, media mix modeling, and strategy AI in one workflow. No competitor replicates all three.",
               },
               {
                 num: "C",
                 title: "Pricing Architecture",
-                body: "3-tier value-based model ($299–$2,499/mo) anchored to ROI multiples of 4–15x. 78% gross margins, 16:1 LTV:CAC on Growth tier, payback under 3 months.",
+                body: "$299–$2,499/mo anchored to 4–15x ROI multiples. 78% gross margins, 16:1 LTV:CAC, payback under 3 months.",
               },
               {
                 num: "D",
                 title: "Revenue Path",
-                body: "$3.4M ARR by end of 2026, $17.7M by 2028 via enterprise pilots and agency channel. Land-and-expand motion drives 118%+ NRR with minimal additional sales cost.",
+                body: "$3.4M ARR by end of 2026, $17.7M by 2028 via enterprise pilots and agency channel. Land-and-expand drives 118%+ NRR.",
               },
             ].map(({ num, title, body }) => (
-              <div key={num} className="bg-[#13131C] p-7 hover:bg-[#15151E] transition-colors">
+              <div key={num} className="bg-[#13131C] p-8 hover:bg-[#15151E] transition-colors">
                 <div className="flex items-start gap-4">
-                  <span className="text-[10px] font-mono text-[#38385A] mt-0.5 flex-shrink-0">
-                    {num}
-                  </span>
+                  <span className="text-[10px] font-mono text-[#38385A] mt-0.5 flex-shrink-0">{num}</span>
                   <div>
                     <h3 className="text-sm font-semibold text-[#EBEBF5] mb-2">{title}</h3>
                     <p className="text-sm text-[#6A6A90] leading-relaxed">{body}</p>
@@ -301,12 +299,11 @@ export default function DashboardPage() {
           <SectionHeader index="03" label="Market Intelligence" title="Key Market Signals" />
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {keyInsights.map((insight) => (
-              <div key={insight.id} className="card p-5">
+              <div key={insight.id} className="card p-6">
                 <p className="text-3xl font-black font-mono text-[#EBEBF5] tracking-tight leading-none mb-3">
                   {insight.stat}
                 </p>
-                <p className="text-xs font-medium text-[#EBEBF5] mb-1.5">{insight.label}</p>
-                <p className="text-xs text-[#38385A] leading-relaxed">{insight.detail}</p>
+                <p className="text-xs text-[#6A6A90] leading-snug">{insight.label}</p>
               </div>
             ))}
           </div>

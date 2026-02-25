@@ -5,7 +5,7 @@
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-purple?style=flat-square&logo=framer)
 ![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat-square&logo=vercel)
 
-# Inovient — AI SaaS Pricing & Market Strategy
+# Inovient: AI SaaS Pricing & Market Strategy
 
 A multi-page strategy site built by Kappa Theta Pi (USC) for Inovient, delivering data-driven market research, competitor analysis, ROI modeling, and pricing strategy for Inovient's Morpheus AI marketing platform.
 
@@ -15,12 +15,12 @@ A multi-page strategy site built by Kappa Theta Pi (USC) for Inovient, deliverin
 
 ## Features
 
-- **Executive Dashboard** — market size metrics ($64.6B SAM, 36.6% CAGR), 5-year ARR projections, and strategic roadmap in a single overview
-- **Market Research** — TAM/SAM/SOM breakdowns with interactive area and bar charts powered by Recharts, sourced from Grand View Research and McKinsey
-- **Competitor Analysis** — feature matrix comparing Morpheus against top competitors (Sprinklr, Brandwatch, and others) across sentiment intelligence, media mix, and strategy AI dimensions
-- **ROI Modeling** — cost-benefit analysis, payback period projections, and LTV:CAC benchmarks demonstrating 4–12x ROI multiples at $299–$2,499/mo price points
-- **Pricing Strategy** — tiered pricing model (Starter / Growth / Enterprise) with gross margin targets and GTM recommendations for a 115%+ NRR land-and-expand motion
-- **Product Positioning** — ICP definition, messaging architecture, and competitive white-space analysis positioning Morpheus as the only unified mid-market platform for competitive intelligence, MMM, and strategy AI
+- **Executive Dashboard:** market size metrics ($64.6B SAM, 36.6% CAGR), 5-year ARR projections, and strategic roadmap in a single overview
+- **Market Research:** TAM/SAM/SOM breakdowns with interactive area and bar charts powered by Recharts, sourced from Grand View Research and McKinsey
+- **Competitor Analysis:** feature matrix comparing Morpheus against top competitors (Sprinklr, Brandwatch, and others) across sentiment intelligence, media mix, and strategy AI dimensions
+- **ROI Modeling:** cost-benefit analysis, payback period projections, and LTV:CAC benchmarks demonstrating 4 to 12x ROI multiples at $299 to $2,499/mo price points
+- **Pricing Strategy:** tiered pricing model (Starter / Growth / Enterprise) with gross margin targets and GTM recommendations for a 115%+ NRR land-and-expand motion
+- **Product Positioning:** ICP definition, messaging architecture, and competitive white-space analysis positioning Morpheus as the only unified mid-market platform for competitive intelligence, MMM, and strategy AI
 
 ## Tech Stack
 
@@ -70,4 +70,4 @@ Built as a KTP Spring 2026 consulting engagement. Inovient's Morpheus platform p
 
 ## Author
 
-**Caleb Newton** — [calebnewton.me](https://calebnewton.me)
+**Caleb Newton** ([calebnewton.me](https://calebnewton.me))

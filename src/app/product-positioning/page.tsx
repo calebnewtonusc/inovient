@@ -1,6 +1,12 @@
-"use client";
-
+import type { Metadata } from "next";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+
+export const metadata: Metadata = {
+  title: "Product Positioning | Morpheus AI",
+  description:
+    "Morpheus positioning framework: a clear, differentiated strategy giving Inovient a defensible market position in the AI-native marketing intelligence era.",
+};
+
 import { CheckCircle2, Target, Users, Globe, Zap } from "lucide-react";
 
 const positioningStatement = {

@@ -20,6 +20,3 @@ export function formatCurrency(value: number, compact = false): string {
   }).format(value);
 }
 
-export function formatMultiple(value: number): string {
-  return `${value.toFixed(1)}x`;
-}

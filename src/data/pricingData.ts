@@ -1,27 +1,7 @@
 // SaaS benchmarks sourced from: OpenView Partners "SaaS Benchmarks Report" (2024);
 // Bessemer Venture Partners "State of the Cloud" (2024); KeyBanc Capital Markets SaaS Survey (2024).
 
-export interface PricingTier {
-  id: string;
-  name: string;
-  subtitle: string;
-  monthlyPrice: number;
-  annualPrice: number;
-  targetSegment: string;
-  features: string[];
-  limitations: string[];
-  metrics: {
-    targetARR: string;
-    expectedConversion: string;
-    avgDealCycle: string;
-    churnRate: string;
-  };
-  recommended: boolean;
-  color: string;
-  gradient: string;
-}
-
-export const pricingTiers: PricingTier[] = [
+export const pricingTiers = [
   {
     id: "starter",
     name: "Starter",

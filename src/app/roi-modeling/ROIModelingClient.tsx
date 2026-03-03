@@ -289,7 +289,7 @@ export default function ROIModelingClient() {
                     />
                     <Tooltip
                       contentStyle={ttStyle}
-                      formatter={(v: number | undefined) => [
+                      formatter={(v: any) => [
                         formatCurrency(v ?? 0),
                         "",
                       ]}

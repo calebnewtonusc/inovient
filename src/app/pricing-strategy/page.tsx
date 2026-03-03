@@ -280,7 +280,7 @@ function PricingChartsSection() {
               />
               <Tooltip
                 contentStyle={ttStyle}
-                formatter={(v: number | undefined) => [`$${v}K`, ""]}
+                formatter={(v: any) => [`$${v}K`, ""]}
               />
               <Area
                 type="monotone"

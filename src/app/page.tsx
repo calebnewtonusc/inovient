@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Pricing & Market Strategy | Morpheus AI",
-  description:
-    "Data-driven market analysis, competitive positioning framework, and pricing strategy for Inovient's Morpheus AI marketing platform.",
-};
+'use client';
 
 import Link from "next/link";
 import dynamic from "next/dynamic";

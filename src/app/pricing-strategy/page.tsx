@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Pricing Strategy | Morpheus AI",
-  description:
-    "Sustainable value-based 3-tier pricing model designed to maximize NRR, LTV:CAC efficiency, and ARR growth, benchmarked against top AI SaaS companies.",
-};
+'use client';
 
 import dynamic from "next/dynamic";
 

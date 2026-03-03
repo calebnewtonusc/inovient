@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Market Research | Morpheus AI",
-  description:
-    "Global AI marketing SaaS market analysis: TAM/SAM/SOM sizing, growth trends, and adoption curves based on Grand View Research, McKinsey, and Salesforce reports.",
-};
+'use client';
 
 import dynamic from "next/dynamic";
 

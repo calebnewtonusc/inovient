@@ -168,7 +168,7 @@ export default function MarketResearchPage() {
                   />
                   <Tooltip
                     contentStyle={ttStyle}
-                    formatter={(v: number | string | undefined) => [`$${v}B`, ""]}
+                    formatter={(v: any) => [`$${v}B`, ""]}
                   />
                   <Area
                     type="monotone"
@@ -223,7 +223,7 @@ export default function MarketResearchPage() {
                     </Pie>
                     <Tooltip
                       contentStyle={ttStyle}
-                      formatter={(v: number | undefined) => [`${v}%`, ""]}
+                      formatter={(v: any) => [`${v}%`, ""]}
                     />
                   </PieChart>
                 </ResponsiveContainer>
@@ -272,7 +272,7 @@ export default function MarketResearchPage() {
                 />
                 <Tooltip
                   contentStyle={ttStyle}
-                  formatter={(v: number | undefined) => [`${v}%`, ""]}
+                  formatter={(v: any) => [`${v}%`, ""]}
                 />
                 <Legend
                   wrapperStyle={{ fontSize: "11px", color: "#6A6A90", paddingTop: "16px" }}
